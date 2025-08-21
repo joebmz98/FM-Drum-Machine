@@ -7796,7 +7796,7 @@
 	)
 	(rectangle
 		(start 563.88 25.4)
-		(end 947.42 372.11)
+		(end 947.42 316.23)
 		(stroke
 			(width 0)
 			(type default)
@@ -8729,12 +8729,6 @@
 		(uuid "0f14835f-4cd4-4444-8b38-847d73dd54b6")
 	)
 	(junction
-		(at 623.57 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0f26e059-8d9e-4dc3-8acf-274bd49320e9")
-	)
-	(junction
 		(at 822.96 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8775,12 +8769,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "13e30a79-49d2-4348-9bb6-ea061e172202")
-	)
-	(junction
-		(at 132.08 87.63)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1433e7c7-4bd6-4f0a-9e01-abb93a56701b")
 	)
 	(junction
 		(at 666.75 74.93)
@@ -8999,12 +8987,6 @@
 		(uuid "34adfb14-7621-477e-a3fe-f7489d006e81")
 	)
 	(junction
-		(at 132.08 109.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "35d0dda8-4556-486c-a75f-28e62d65e365")
-	)
-	(junction
 		(at 349.25 508)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9101,12 +9083,6 @@
 		(uuid "49d71d88-d18d-4744-b68a-8126907a1ab5")
 	)
 	(junction
-		(at 615.95 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4c7aba66-9e79-44a9-a672-1284340bb79b")
-	)
-	(junction
 		(at 278.13 485.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9123,6 +9099,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "50e3ad6e-d434-4019-8da7-7de1083db43e")
+	)
+	(junction
+		(at 615.95 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "513bb105-eedc-4a9c-b29a-9ff8a6818270")
 	)
 	(junction
 		(at 278.13 459.74)
@@ -9189,6 +9171,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6045f598-772d-48af-9b6a-ed5d092c0e97")
+	)
+	(junction
+		(at 618.49 52.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "66eaf9a0-8ca3-4b7e-9d95-c5e408196d12")
 	)
 	(junction
 		(at 381 295.91)
@@ -9321,6 +9309,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "811d2726-dbdb-49b2-a463-863dc1781da5")
+	)
+	(junction
+		(at 621.03 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "818f016d-9026-4f41-8f88-8d569bc8172c")
 	)
 	(junction
 		(at 125.73 99.06)
@@ -9749,12 +9743,6 @@
 		(uuid "bf519499-9240-4f94-ab5a-7c8fdfe9a629")
 	)
 	(junction
-		(at 618.49 57.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c045a0ce-59d8-4b85-8f8c-8857ecdc6929")
-	)
-	(junction
 		(at 110.49 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9989,6 +9977,12 @@
 		(uuid "e8e502ff-bbf8-434a-8cf2-39c14bcb4073")
 	)
 	(junction
+		(at 623.57 77.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e9a64d35-bbdc-421a-9a67-f890e50fbc48")
+	)
+	(junction
 		(at 381 219.71)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10035,12 +10029,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f72c169c-c2db-4ba7-a40b-2aa6fe36ee3a")
-	)
-	(junction
-		(at 621.03 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f822e02e-8ed4-4361-a00f-b0d6d4ba5eed")
 	)
 	(junction
 		(at 381 276.86)
@@ -10458,6 +10446,16 @@
 	)
 	(wire
 		(pts
+			(xy 599.44 57.15) (xy 596.9 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0829bc3e-bd50-4df7-8a80-c908f70b481a")
+	)
+	(wire
+		(pts
 			(xy 584.2 243.84) (xy 586.74 243.84)
 		)
 		(stroke
@@ -10588,6 +10586,16 @@
 	)
 	(wire
 		(pts
+			(xy 603.25 88.9) (xy 590.55 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c2825a6-3409-4525-b63b-e386736ceaa6")
+	)
+	(wire
+		(pts
 			(xy 278.13 546.1) (xy 278.13 535.94)
 		)
 		(stroke
@@ -10695,16 +10703,6 @@
 			(type default)
 		)
 		(uuid "0fc6a1a3-ccf5-4375-9c05-f174764a04de")
-	)
-	(wire
-		(pts
-			(xy 585.47 44.45) (xy 599.44 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ff4d91d-e244-46d9-8eac-856ae02d4ca8")
 	)
 	(wire
 		(pts
@@ -11398,6 +11396,16 @@
 	)
 	(wire
 		(pts
+			(xy 603.25 50.8) (xy 590.55 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20e466bd-3f9a-4d44-a0d8-1fcc7c66c76e")
+	)
+	(wire
+		(pts
 			(xy 408.94 488.95) (xy 412.75 488.95)
 		)
 		(stroke
@@ -11495,6 +11503,16 @@
 			(type default)
 		)
 		(uuid "23687f53-53b3-47fa-85c9-c3f180ebc8dd")
+	)
+	(wire
+		(pts
+			(xy 590.55 82.55) (xy 585.47 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "237ed7be-bd62-490a-9263-1b34758ca0d3")
 	)
 	(wire
 		(pts
@@ -11768,6 +11786,16 @@
 	)
 	(wire
 		(pts
+			(xy 590.55 50.8) (xy 590.55 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "282d2abc-42b1-4aac-8a4e-b901c476bd1d")
+	)
+	(wire
+		(pts
 			(xy 252.73 546.1) (xy 255.27 546.1)
 		)
 		(stroke
@@ -11978,16 +12006,6 @@
 	)
 	(wire
 		(pts
-			(xy 585.47 69.85) (xy 599.44 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2ec90f8e-28a2-47b3-be7d-a5faccbd3dc0")
-	)
-	(wire
-		(pts
 			(xy 482.6 487.68) (xy 469.9 487.68)
 		)
 		(stroke
@@ -12075,6 +12093,16 @@
 			(type default)
 		)
 		(uuid "2fd096ac-0e8f-480b-906d-3cf5f63c5a2b")
+	)
+	(wire
+		(pts
+			(xy 599.44 69.85) (xy 596.9 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ff47b40-f619-4603-8498-e0db62580b50")
 	)
 	(wire
 		(pts
@@ -12325,16 +12353,6 @@
 			(type default)
 		)
 		(uuid "3538674f-6538-4a72-91b0-b27897fd5247")
-	)
-	(wire
-		(pts
-			(xy 603.25 50.8) (xy 615.95 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35713a4e-f198-4cba-b144-5f7956c486d1")
 	)
 	(wire
 		(pts
@@ -13128,7 +13146,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 73.66) (xy 59.69 74.93)
+			(xy 39.37 81.28) (xy 40.64 81.28)
 		)
 		(stroke
 			(width 0)
@@ -13628,6 +13646,16 @@
 	)
 	(wire
 		(pts
+			(xy 603.25 63.5) (xy 590.55 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50f1220e-f1f2-4541-91ad-a7948c85de46")
+	)
+	(wire
+		(pts
 			(xy 464.82 172.72) (xy 467.36 172.72)
 		)
 		(stroke
@@ -13828,6 +13856,16 @@
 	)
 	(wire
 		(pts
+			(xy 54.61 81.28) (xy 54.61 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56b026f2-ec28-4dfa-bbcf-65cd38a5c110")
+	)
+	(wire
+		(pts
 			(xy 290.83 469.9) (xy 290.83 472.44)
 		)
 		(stroke
@@ -13905,6 +13943,16 @@
 			(type default)
 		)
 		(uuid "5813ded7-e0fa-4d25-bebe-c2bf247d35bd")
+	)
+	(wire
+		(pts
+			(xy 590.55 76.2) (xy 590.55 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5846409b-2d7b-49df-80bd-8e9ee17e0a4d")
 	)
 	(wire
 		(pts
@@ -13995,6 +14043,16 @@
 			(type default)
 		)
 		(uuid "5a3d4923-05ce-4cae-982f-da3f3133e2d3")
+	)
+	(wire
+		(pts
+			(xy 596.9 44.45) (xy 596.9 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a73f165-a3d2-4b5a-a330-ffb81dfda2e7")
 	)
 	(wire
 		(pts
@@ -14468,6 +14526,16 @@
 	)
 	(wire
 		(pts
+			(xy 590.55 63.5) (xy 590.55 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65500995-1439-4172-9856-03b4de80b6c9")
+	)
+	(wire
+		(pts
 			(xy 669.29 201.93) (xy 687.07 201.93)
 		)
 		(stroke
@@ -14665,16 +14733,6 @@
 			(type default)
 		)
 		(uuid "6a3a0026-f23f-4db6-9959-e321e6ce9a45")
-	)
-	(wire
-		(pts
-			(xy 585.47 82.55) (xy 599.44 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a4432e7-d9f7-462d-9f4b-56b66567f968")
 	)
 	(wire
 		(pts
@@ -15038,6 +15096,16 @@
 	)
 	(wire
 		(pts
+			(xy 590.55 69.85) (xy 585.47 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "710adb83-5c47-49e7-9223-36543d5cb31f")
+	)
+	(wire
+		(pts
 			(xy 623.57 77.47) (xy 623.57 82.55)
 		)
 		(stroke
@@ -15108,7 +15176,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 83.82) (xy 132.08 87.63)
+			(xy 132.08 83.82) (xy 132.08 88.9)
 		)
 		(stroke
 			(width 0)
@@ -15358,7 +15426,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 87.63) (xy 59.69 88.9)
+			(xy 53.34 81.28) (xy 54.61 81.28)
 		)
 		(stroke
 			(width 0)
@@ -16298,6 +16366,16 @@
 	)
 	(wire
 		(pts
+			(xy 590.55 88.9) (xy 590.55 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89c91282-9ae9-4ee5-a481-9678e318383b")
+	)
+	(wire
+		(pts
 			(xy 306.07 520.7) (xy 303.53 520.7)
 		)
 		(stroke
@@ -16305,6 +16383,16 @@
 			(type default)
 		)
 		(uuid "89e75d3a-f16c-4159-9fb5-01f6acfb42ac")
+	)
+	(wire
+		(pts
+			(xy 596.9 57.15) (xy 596.9 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89f71a25-ced5-4f6a-abf8-2c02b2f8c73c")
 	)
 	(wire
 		(pts
@@ -16458,6 +16546,16 @@
 	)
 	(wire
 		(pts
+			(xy 596.9 82.55) (xy 596.9 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d6e457a-9c9c-42b9-91ed-61fe5a472302")
+	)
+	(wire
+		(pts
 			(xy 405.13 212.09) (xy 405.13 214.63)
 		)
 		(stroke
@@ -16485,6 +16583,16 @@
 			(type default)
 		)
 		(uuid "8db8e9ad-3d01-4207-a2ff-0bd1551765e3")
+	)
+	(wire
+		(pts
+			(xy 590.55 57.15) (xy 585.47 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dcc0809-c32c-4a18-b73e-747ea9a5b086")
 	)
 	(wire
 		(pts
@@ -16615,16 +16723,6 @@
 			(type default)
 		)
 		(uuid "90c2ede8-5e94-4436-b695-cf596b4788ac")
-	)
-	(wire
-		(pts
-			(xy 615.95 44.45) (xy 615.95 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90eeebb8-07ce-42b7-993c-c0102f3a6e3e")
 	)
 	(wire
 		(pts
@@ -16918,16 +17016,6 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 109.22) (xy 132.08 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "97af4080-b435-403d-b562-74dcabb71d18")
-	)
-	(wire
-		(pts
 			(xy 403.86 238.76) (xy 411.48 238.76)
 		)
 		(stroke
@@ -17008,6 +17096,16 @@
 	)
 	(wire
 		(pts
+			(xy 596.9 52.07) (xy 618.49 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9913c176-74ef-4522-8d62-42e027d4b5db")
+	)
+	(wire
+		(pts
 			(xy 438.15 500.38) (xy 457.2 500.38)
 		)
 		(stroke
@@ -17075,16 +17173,6 @@
 			(type default)
 		)
 		(uuid "9a18657f-5349-4eb4-835f-b8f56605b286")
-	)
-	(wire
-		(pts
-			(xy 585.47 57.15) (xy 599.44 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a373f2b-2de1-415d-a11f-7b5a2a85607a")
 	)
 	(wire
 		(pts
@@ -17185,16 +17273,6 @@
 			(type default)
 		)
 		(uuid "9c79b6e5-5952-4e14-9de1-579fdcb503da")
-	)
-	(wire
-		(pts
-			(xy 621.03 76.2) (xy 621.03 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ca62c77-1f54-4ba9-a1d7-278d57583a39")
 	)
 	(wire
 		(pts
@@ -17498,6 +17576,16 @@
 	)
 	(wire
 		(pts
+			(xy 596.9 77.47) (xy 623.57 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a180771c-4f97-42c4-b23b-07bd5619a790")
+	)
+	(wire
+		(pts
 			(xy 702.31 186.69) (xy 702.31 180.34)
 		)
 		(stroke
@@ -17735,16 +17823,6 @@
 			(type default)
 		)
 		(uuid "a577051a-3d2b-4527-b3d5-77e3f2a2a546")
-	)
-	(wire
-		(pts
-			(xy 132.08 87.63) (xy 132.08 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5fc33ec-85bb-47c4-8e31-42d93d8a4299")
 	)
 	(wire
 		(pts
@@ -18108,16 +18186,6 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 87.63) (xy 185.42 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "af12e8ba-f74a-471c-9b8f-173aa7710d0b")
-	)
-	(wire
-		(pts
 			(xy 800.1 210.82) (xy 800.1 241.3)
 		)
 		(stroke
@@ -18135,6 +18203,16 @@
 			(type default)
 		)
 		(uuid "b006bf3a-f538-4776-9225-64f9d40f659f")
+	)
+	(wire
+		(pts
+			(xy 603.25 76.2) (xy 590.55 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b050f33f-e141-476b-9df3-2a09845b49e8")
 	)
 	(wire
 		(pts
@@ -18338,16 +18416,6 @@
 	)
 	(wire
 		(pts
-			(xy 623.57 88.9) (xy 623.57 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4fc4329-dbe4-4c71-8565-b421c24053a1")
-	)
-	(wire
-		(pts
 			(xy 257.81 214.63) (xy 262.89 214.63)
 		)
 		(stroke
@@ -18365,16 +18433,6 @@
 			(type default)
 		)
 		(uuid "b5be5821-f724-4aaa-8d75-3662856772cf")
-	)
-	(wire
-		(pts
-			(xy 603.25 76.2) (xy 621.03 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b5f5162b-fb00-421a-a6a2-94a5fa0bc862")
 	)
 	(wire
 		(pts
@@ -18415,16 +18473,6 @@
 			(type default)
 		)
 		(uuid "b638e6cc-61c3-4fff-aa51-9cb0b52573f7")
-	)
-	(wire
-		(pts
-			(xy 132.08 107.95) (xy 132.08 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7ad5b47-a36b-41c5-9488-e71843c54a00")
 	)
 	(wire
 		(pts
@@ -18668,16 +18716,6 @@
 	)
 	(wire
 		(pts
-			(xy 603.25 63.5) (xy 618.49 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc552eca-4377-4e82-b26e-173dba316369")
-	)
-	(wire
-		(pts
 			(xy 505.46 200.66) (xy 505.46 210.82)
 		)
 		(stroke
@@ -18815,16 +18853,6 @@
 			(type default)
 		)
 		(uuid "bef36ce5-614d-4658-8203-aac0910f2e09")
-	)
-	(wire
-		(pts
-			(xy 618.49 63.5) (xy 618.49 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bfc5a9b2-4144-41a4-8061-349509601c49")
 	)
 	(wire
 		(pts
@@ -19368,16 +19396,6 @@
 	)
 	(wire
 		(pts
-			(xy 603.25 88.9) (xy 623.57 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb83f150-8170-4b86-b614-72e8063604eb")
-	)
-	(wire
-		(pts
 			(xy 285.75 313.69) (xy 293.37 313.69)
 		)
 		(stroke
@@ -19398,7 +19416,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 109.22) (xy 132.08 115.57)
+			(xy 132.08 107.95) (xy 132.08 115.57)
 		)
 		(stroke
 			(width 0)
@@ -19815,6 +19833,16 @@
 			(type default)
 		)
 		(uuid "d48424dd-23a8-41dc-ac08-944083b5f866")
+	)
+	(wire
+		(pts
+			(xy 596.9 39.37) (xy 615.95 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4beb281-4013-4eec-b6df-cc63be1c9185")
 	)
 	(wire
 		(pts
@@ -20378,6 +20406,16 @@
 	)
 	(wire
 		(pts
+			(xy 599.44 44.45) (xy 596.9 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e126fd15-cfa7-4766-92f5-68123c5ac030")
+	)
+	(wire
+		(pts
 			(xy 297.18 289.56) (xy 302.26 289.56)
 		)
 		(stroke
@@ -20465,6 +20503,16 @@
 			(type default)
 		)
 		(uuid "e32be606-8a58-4aad-83a7-96260695a298")
+	)
+	(wire
+		(pts
+			(xy 596.9 64.77) (xy 621.03 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3bb15de-c211-40a6-a5eb-afba2a2e0499")
 	)
 	(wire
 		(pts
@@ -20785,6 +20833,16 @@
 			(type default)
 		)
 		(uuid "ec0b1fca-446b-4c14-8639-5e1e8e1d8692")
+	)
+	(wire
+		(pts
+			(xy 596.9 69.85) (xy 596.9 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec10bc94-3337-452f-8905-848882a865d4")
 	)
 	(wire
 		(pts
@@ -21185,6 +21243,26 @@
 			(type default)
 		)
 		(uuid "f4250eb3-2916-48c5-8f84-20d12e91b943")
+	)
+	(wire
+		(pts
+			(xy 599.44 82.55) (xy 596.9 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f438c41d-1b56-4f9f-b14c-4ae316282ede")
+	)
+	(wire
+		(pts
+			(xy 590.55 44.45) (xy 585.47 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f4875bce-d9e7-4d7a-8246-2fdeca31985d")
 	)
 	(wire
 		(pts
@@ -24718,22 +24796,22 @@
 	)
 	(global_label "12V"
 		(shape input)
-		(at 59.69 73.66 90)
+		(at 39.37 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "81a1ac61-bea1-4082-a28c-081ebd18f8d3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 59.69 67.1672 90)
+			(at 32.8772 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -27771,7 +27849,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 645.16 206.248 90)
 			(effects
 				(font
@@ -27910,7 +27988,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 260.35 579.12 0)
 			(effects
 				(font
@@ -27980,7 +28058,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 372.11 157.48 0)
 			(effects
 				(font
@@ -28119,7 +28197,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 293.37 233.68 0)
 			(effects
 				(font
@@ -28190,7 +28268,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 167.64 101.6 0)
 			(effects
 				(font
@@ -28384,7 +28462,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 801.37 126.238 90)
 			(effects
 				(font
@@ -28586,7 +28664,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 727.71 226.822 90)
 			(effects
 				(font
@@ -28658,7 +28736,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 260.35 477.52 0)
 			(effects
 				(font
@@ -28678,6 +28756,15 @@
 		)
 		(property "Description" "Push button switch, generic, two pins"
 			(at 265.43 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Field5" ""
+			(at 265.43 477.52 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28730,7 +28817,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 259.08 546.1 0)
 			(effects
 				(font
@@ -28865,7 +28952,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 720.09 84.328 90)
 			(effects
 				(font
@@ -29074,7 +29161,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 335.28 571.5 0)
 			(effects
 				(font
@@ -29144,7 +29231,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 254 0)
 			(effects
 				(font
@@ -29219,7 +29306,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 309.88 469.9 0)
 			(effects
 				(font
@@ -29288,7 +29375,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 631.19 46.228 90)
 			(effects
 				(font
@@ -29433,7 +29520,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 234.95 553.72 0)
 			(effects
 				(font
@@ -29637,7 +29724,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 643.89 127.762 90)
 			(effects
 				(font
@@ -29981,7 +30068,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 847.852 248.92 90)
 			(effects
 				(font
@@ -30184,7 +30271,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 233.68 0)
 			(effects
 				(font
@@ -30256,7 +30343,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 704.088 194.31 90)
 			(effects
 				(font
@@ -30391,7 +30478,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 881.38 74.168 90)
 			(effects
 				(font
@@ -30463,7 +30550,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 311.15 553.72 0)
 			(effects
 				(font
@@ -31393,7 +31480,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 866.14 156.718 90)
 			(effects
 				(font
@@ -31739,7 +31826,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 886.46 156.718 90)
 			(effects
 				(font
@@ -31807,7 +31894,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 628.65 246.38 0)
 			(effects
 				(font
@@ -32125,7 +32212,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 657.352 106.68 90)
 			(effects
 				(font
@@ -32261,7 +32348,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 709.93 188.468 90)
 			(effects
 				(font
@@ -32331,7 +32418,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "audioConnectors_Edit:Jack_3.5mm_CUI_SJ1-3525N_Horizontal_edit"
 			(at 275.59 379.73 0)
 			(effects
 				(font
@@ -32627,7 +32714,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 847.852 229.87 90)
 			(effects
 				(font
@@ -32696,7 +32783,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 643.89 122.682 90)
 			(effects
 				(font
@@ -32832,7 +32919,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 411.48 233.68 0)
 			(effects
 				(font
@@ -32887,7 +32974,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f85bc8d-d3da-4e00-8d6f-0b276037155a")
-		(property "Reference" "Ch3"
+		(property "Reference" "RV33"
 			(at 603.25 63.5 90)
 			(effects
 				(font
@@ -32903,7 +32990,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 603.25 69.85 0)
 			(effects
 				(font
@@ -32942,7 +33029,7 @@
 		(instances
 			(project "drumMachine_Kick"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Ch3")
+					(reference "RV33")
 					(unit 1)
 				)
 			)
@@ -33055,7 +33142,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 234.95 528.32 0)
 			(effects
 				(font
@@ -33356,7 +33443,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 285.75 528.32 0)
 			(effects
 				(font
@@ -33564,7 +33651,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 285.75 477.52 0)
 			(effects
 				(font
@@ -33751,7 +33838,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "366c0cd7-490a-4b7d-9524-cf7ffd728ee3")
-		(property "Reference" "Ch6"
+		(property "Reference" "RV39"
 			(at 723.9 234.9499 0)
 			(effects
 				(font
@@ -33769,7 +33856,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 721.36 236.22 0)
 			(effects
 				(font
@@ -33808,7 +33895,7 @@
 		(instances
 			(project "FM_DRUM_MACHINE"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Ch6")
+					(reference "RV39")
 					(unit 1)
 				)
 			)
@@ -33839,7 +33926,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Potentiometer:Potentiometer_Alps_RK09L_Double_Vertical"
 			(at 878.84 54.61 0)
 			(effects
 				(font
@@ -33923,7 +34010,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 284.48 469.9 0)
 			(effects
 				(font
@@ -33995,7 +34082,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 336.55 579.12 0)
 			(effects
 				(font
@@ -34279,7 +34366,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 336.55 477.52 0)
 			(effects
 				(font
@@ -34349,7 +34436,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "teensy:Teensy40"
 			(at 254 81.28 0)
 			(effects
 				(font
@@ -34572,7 +34659,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 704.85 104.14 0)
 			(effects
 				(font
@@ -34743,7 +34830,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 819.15 203.2 0)
 			(effects
 				(font
@@ -34917,7 +35004,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 233.68 520.7 0)
 			(effects
 				(font
@@ -34985,7 +35072,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 819.15 261.62 0)
 			(effects
 				(font
@@ -35090,7 +35177,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 105.41 100.838 90)
 			(effects
 				(font
@@ -35457,7 +35544,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 288.798 407.67 90)
 			(effects
 				(font
@@ -35526,7 +35613,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 294.64 415.798 90)
 			(effects
 				(font
@@ -35598,7 +35685,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 259.08 571.5 0)
 			(effects
 				(font
@@ -35744,7 +35831,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 372.11 271.78 0)
 			(effects
 				(font
@@ -35819,7 +35906,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 233.68 469.9 0)
 			(effects
 				(font
@@ -36025,7 +36112,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 335.28 495.3 0)
 			(effects
 				(font
@@ -36183,7 +36270,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM5102_DAC_BreakoutBoard_v2:PCM5102_DAC_BreakoutBoard"
 			(at 474.98 179.07 0)
 			(effects
 				(font
@@ -36292,7 +36379,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 293.37 214.63 0)
 			(effects
 				(font
@@ -36599,7 +36686,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 234.95 579.12 0)
 			(effects
 				(font
@@ -36671,7 +36758,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 259.08 495.3 0)
 			(effects
 				(font
@@ -36740,7 +36827,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 927.862 138.43 90)
 			(effects
 				(font
@@ -37028,7 +37115,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 785.622 57.15 90)
 			(effects
 				(font
@@ -37230,7 +37317,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 605.028 237.49 90)
 			(effects
 				(font
@@ -37443,7 +37530,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "audioConnectors_Edit:Jack_3.5mm_CUI_SJ1-3525N_Horizontal_edit"
 			(at 741.68 228.6 0)
 			(effects
 				(font
@@ -37579,7 +37666,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 157.48 0)
 			(effects
 				(font
@@ -37650,7 +37737,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 679.45 50.8 0)
 			(effects
 				(font
@@ -37756,7 +37843,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 626.11 258.572 90)
 			(effects
 				(font
@@ -37826,7 +37913,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 293.37 308.61 0)
 			(effects
 				(font
@@ -37975,7 +38062,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 847.852 269.24 90)
 			(effects
 				(font
@@ -38047,7 +38134,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 336.55 528.32 0)
 			(effects
 				(font
@@ -38119,7 +38206,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 260.35 553.72 0)
 			(effects
 				(font
@@ -38188,7 +38275,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 69.342 101.6 90)
 			(effects
 				(font
@@ -38443,7 +38530,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 284.48 520.7 0)
 			(effects
 				(font
@@ -38512,7 +38599,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 639.318 135.89 90)
 			(effects
 				(font
@@ -38581,7 +38668,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 699.77 74.168 90)
 			(effects
 				(font
@@ -38632,7 +38719,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6299c18d-7d85-447b-adc7-d2ce61c5a85e")
-		(property "Reference" "Nano"
+		(property "Reference" "Nano1"
 			(at 231.14 407.924 90)
 			(effects
 				(font
@@ -38772,7 +38859,7 @@
 		(instances
 			(project ""
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Nano")
+					(reference "Nano1")
 					(unit 1)
 				)
 			)
@@ -38942,7 +39029,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 631.19 84.328 90)
 			(effects
 				(font
@@ -39082,7 +39169,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 801.878 57.15 90)
 			(effects
 				(font
@@ -39154,7 +39241,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 260.35 528.32 0)
 			(effects
 				(font
@@ -39224,7 +39311,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 601.98 274.32 0)
 			(effects
 				(font
@@ -39395,7 +39482,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P5.08mm_Vertical_KathodeUp"
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 588.01 162.56 0)
 			(effects
 				(font
@@ -39482,7 +39569,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 659.13 213.868 90)
 			(effects
 				(font
@@ -39619,7 +39706,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 293.37 289.56 0)
 			(effects
 				(font
@@ -39950,7 +40037,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 822.452 167.64 90)
 			(effects
 				(font
@@ -40019,7 +40106,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 304.8 376.428 90)
 			(effects
 				(font
@@ -40091,7 +40178,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 285.75 579.12 0)
 			(effects
 				(font
@@ -40295,7 +40382,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 309.88 546.1 0)
 			(effects
 				(font
@@ -40365,7 +40452,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 372.11 290.83 0)
 			(effects
 				(font
@@ -40437,7 +40524,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 861.06 74.168 90)
 			(effects
 				(font
@@ -40591,7 +40678,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 679.45 72.39 0)
 			(effects
 				(font
@@ -40966,7 +41053,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 293.37 176.53 0)
 			(effects
 				(font
@@ -41039,7 +41126,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 411.48 271.78 0)
 			(effects
 				(font
@@ -41114,7 +41201,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 284.48 495.3 0)
 			(effects
 				(font
@@ -41710,7 +41797,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 411.48 290.83 0)
 			(effects
 				(font
@@ -41783,7 +41870,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "audioConnectors_Edit:Jack_3.5mm_CUI_SJ1-3525N_Horizontal_edit"
 			(at 275.59 411.48 0)
 			(effects
 				(font
@@ -42026,7 +42113,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 650.748 179.07 90)
 			(effects
 				(font
@@ -42098,7 +42185,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 336.55 553.72 0)
 			(effects
 				(font
@@ -42170,7 +42257,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 311.15 579.12 0)
 			(effects
 				(font
@@ -42242,7 +42329,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 309.88 520.7 0)
 			(effects
 				(font
@@ -42311,7 +42398,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 583.438 173.99 90)
 			(effects
 				(font
@@ -42381,7 +42468,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 372.11 214.63 0)
 			(effects
 				(font
@@ -42762,7 +42849,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 311.15 528.32 0)
 			(effects
 				(font
@@ -42901,7 +42988,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 309.88 571.5 0)
 			(effects
 				(font
@@ -43176,7 +43263,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 411.48 157.48 0)
 			(effects
 				(font
@@ -43315,7 +43402,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 176.53 0)
 			(effects
 				(font
@@ -43453,7 +43540,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 774.7 135.89 0)
 			(effects
 				(font
@@ -43561,7 +43648,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 233.68 546.1 0)
 			(effects
 				(font
@@ -43629,7 +43716,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P5.08mm_Vertical_KathodeUp"
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 603.25 162.56 0)
 			(effects
 				(font
@@ -43719,7 +43806,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 259.08 469.9 0)
 			(effects
 				(font
@@ -43922,7 +44009,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 411.48 214.63 0)
 			(effects
 				(font
@@ -44059,7 +44146,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 709.93 132.08 0)
 			(effects
 				(font
@@ -44308,7 +44395,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 844.55 203.962 90)
 			(effects
 				(font
@@ -44454,7 +44541,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 844.55 242.062 90)
 			(effects
 				(font
@@ -44678,7 +44765,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 631.19 71.628 90)
 			(effects
 				(font
@@ -44813,7 +44900,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 869.95 170.18 0)
 			(effects
 				(font
@@ -44921,7 +45008,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 309.88 495.3 0)
 			(effects
 				(font
@@ -44989,7 +45076,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 594.36 147.32 0)
 			(effects
 				(font
@@ -45225,7 +45312,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Potentiometer:Potentiometer_Alps_RK09L_Double_Vertical"
 			(at 838.2 46.99 0)
 			(effects
 				(font
@@ -45309,7 +45396,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 285.75 553.72 0)
 			(effects
 				(font
@@ -45378,7 +45465,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 609.6 151.638 90)
 			(effects
 				(font
@@ -45450,7 +45537,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 234.95 502.92 0)
 			(effects
 				(font
@@ -45596,7 +45683,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 793.242 130.81 90)
 			(effects
 				(font
@@ -45665,7 +45752,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 387.858 476.25 90)
 			(effects
 				(font
@@ -45734,7 +45821,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 844.55 223.012 90)
 			(effects
 				(font
@@ -45806,7 +45893,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 234.95 477.52 0)
 			(effects
 				(font
@@ -45874,7 +45961,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 819.15 222.25 0)
 			(effects
 				(font
@@ -46320,7 +46407,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 284.48 546.1 0)
 			(effects
 				(font
@@ -46389,7 +46476,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 844.55 262.382 90)
 			(effects
 				(font
@@ -46547,7 +46634,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 372.11 176.53 0)
 			(effects
 				(font
@@ -46686,7 +46773,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 308.61 0)
 			(effects
 				(font
@@ -46757,7 +46844,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Potentiometer:Potentiometer_Alps_RK09L_Double_Vertical"
 			(at 839.47 127 0)
 			(effects
 				(font
@@ -46839,7 +46926,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 411.48 176.53 0)
 			(effects
 				(font
@@ -47088,7 +47175,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Potentiometer:Potentiometer_Alps_RK09L_Double_Vertical"
 			(at 881.38 129.54 0)
 			(effects
 				(font
@@ -47170,7 +47257,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:D_4148_BigPads"
 			(at 314.96 377.19 0)
 			(effects
 				(font
@@ -47371,7 +47458,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 847.852 210.82 90)
 			(effects
 				(font
@@ -47509,7 +47596,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 706.628 63.5 90)
 			(effects
 				(font
@@ -47845,7 +47932,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "2k"
 			(at 615.95 296.164 90)
 			(effects
 				(font
@@ -47855,7 +47942,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 617.728 295.91 90)
 			(effects
 				(font
@@ -47924,7 +48011,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 809.498 130.81 90)
 			(effects
 				(font
@@ -48059,7 +48146,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 660.908 76.2 90)
 			(effects
 				(font
@@ -48325,7 +48412,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 662.94 175.26 0)
 			(effects
 				(font
@@ -48431,7 +48518,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 925.322 63.5 90)
 			(effects
 				(font
@@ -48567,7 +48654,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 821.182 92.71 90)
 			(effects
 				(font
@@ -49060,7 +49147,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 706.628 73.66 90)
 			(effects
 				(font
@@ -49112,7 +49199,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bdc9ea68-b6ab-4256-ae20-1eca6335f089")
-		(property "Reference" "Ch4"
+		(property "Reference" "RV35"
 			(at 603.25 76.2 90)
 			(effects
 				(font
@@ -49128,7 +49215,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 603.25 82.55 0)
 			(effects
 				(font
@@ -49167,7 +49254,7 @@
 		(instances
 			(project "drumMachine_Kick"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Ch4")
+					(reference "RV35")
 					(unit 1)
 				)
 			)
@@ -49260,7 +49347,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bec1f15c-6019-466e-89a0-4cf02e8ef44f")
-		(property "Reference" "Ch5"
+		(property "Reference" "RV38"
 			(at 618.49 284.4799 0)
 			(effects
 				(font
@@ -49278,7 +49365,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 615.95 285.75 0)
 			(effects
 				(font
@@ -49317,7 +49404,7 @@
 		(instances
 			(project "FM_DRUM_MACHINE"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Ch5")
+					(reference "RV38")
 					(unit 1)
 				)
 			)
@@ -49549,7 +49636,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c65bfb73-a95a-4377-8ddc-a4f1640b96f1")
-		(property "Reference" "Ch1"
+		(property "Reference" "RV46"
 			(at 603.25 38.1 90)
 			(effects
 				(font
@@ -49565,7 +49652,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 603.25 44.45 0)
 			(effects
 				(font
@@ -49604,7 +49691,7 @@
 		(instances
 			(project "drumMachine_Kick"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Ch1")
+					(reference "RV46")
 					(unit 1)
 				)
 			)
@@ -49768,7 +49855,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 659.13 199.39 0)
 			(effects
 				(font
@@ -49939,7 +50026,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 642.62 174.498 90)
 			(effects
 				(font
@@ -50009,7 +50096,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "audioConnectors_Edit:Jack_3.5mm_CUI_SJ1-3525N_Horizontal_edit"
 			(at 275.59 358.14 0)
 			(effects
 				(font
@@ -50084,7 +50171,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 336.55 502.92 0)
 			(effects
 				(font
@@ -50219,7 +50306,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 91.44 99.06 0)
 			(effects
 				(font
@@ -50326,7 +50413,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 293.37 157.48 0)
 			(effects
 				(font
@@ -50467,7 +50554,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 233.68 495.3 0)
 			(effects
 				(font
@@ -50919,7 +51006,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 59.69 88.9 0)
+		(at 54.61 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -50927,7 +51014,7 @@
 		(dnp no)
 		(uuid "d1b8a9ec-2462-4426-a546-cf09b6a6f8c3")
 		(property "Reference" "#PWR092"
-			(at 59.69 95.25 0)
+			(at 54.61 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50936,7 +51023,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 57.404 89.662 0)
+			(at 60.198 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50945,7 +51032,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 59.69 88.9 0)
+			(at 54.61 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50954,7 +51041,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 88.9 0)
+			(at 54.61 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50963,7 +51050,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 59.69 88.9 0)
+			(at 54.61 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51013,7 +51100,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 335.28 546.1 0)
 			(effects
 				(font
@@ -51080,7 +51167,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P5.08mm_Vertical_KathodeUp"
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 595.63 167.64 0)
 			(effects
 				(font
@@ -51245,7 +51332,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM5102_DAC_BreakoutBoard_v2:PCM5102_DAC_BreakoutBoard"
 			(at 474.98 229.87 0)
 			(effects
 				(font
@@ -51328,7 +51415,7 @@
 	)
 	(symbol
 		(lib_id "PCM_4ms_IC:TL072")
-		(at 59.69 81.28 0)
+		(at 46.99 81.28 90)
 		(unit 3)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -51337,7 +51424,7 @@
 		(fields_autoplaced yes)
 		(uuid "d5c74e4b-ad4c-43e8-a41e-87884bf1a46b")
 		(property "Reference" "U3"
-			(at 63.5 80.0099 0)
+			(at 45.7199 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51346,7 +51433,7 @@
 			)
 		)
 		(property "Value" "TL072"
-			(at 63.5 82.5499 0)
+			(at 48.2599 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51354,8 +51441,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
-			(at 59.69 81.28 0)
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
+			(at 46.99 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51364,7 +51451,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 81.28 0)
+			(at 46.99 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51373,7 +51460,7 @@
 			)
 		)
 		(property "Description" "TL072 Dual Opamp TSSOP-8"
-			(at 59.69 81.28 0)
+			(at 46.99 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51382,7 +51469,7 @@
 			)
 		)
 		(property "Specifications" "TL072 Dual Opamp"
-			(at 57.15 89.154 0)
+			(at 54.864 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51392,7 +51479,7 @@
 			)
 		)
 		(property "JLCPCB ID" "C90748"
-			(at 59.69 81.28 0)
+			(at 46.99 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -51459,7 +51546,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 820.42 124.46 0)
 			(effects
 				(font
@@ -51696,7 +51783,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 904.24 129.54 0)
 			(effects
 				(font
@@ -52074,7 +52161,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 335.28 520.7 0)
 			(effects
 				(font
@@ -52213,7 +52300,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 242.57 438.15 0)
 			(effects
 				(font
@@ -52285,7 +52372,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 354.838 375.92 90)
 			(effects
 				(font
@@ -52578,7 +52665,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 260.35 502.92 0)
 			(effects
 				(font
@@ -52646,7 +52733,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 864.87 127 0)
 			(effects
 				(font
@@ -52754,7 +52841,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 284.48 571.5 0)
 			(effects
 				(font
@@ -52882,7 +52969,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e16f04ea-5da7-420c-b8fa-4a94bebc45ac")
-		(property "Reference" "Ch2"
+		(property "Reference" "RV40"
 			(at 603.25 50.8 90)
 			(effects
 				(font
@@ -52898,7 +52985,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 603.25 57.15 0)
 			(effects
 				(font
@@ -52937,7 +53024,7 @@
 		(instances
 			(project "drumMachine_Kick"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "Ch2")
+					(reference "RV40")
 					(unit 1)
 				)
 			)
@@ -52970,7 +53057,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 676.91 177.038 90)
 			(effects
 				(font
@@ -53039,7 +53126,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 679.45 84.328 90)
 			(effects
 				(font
@@ -53111,7 +53198,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 335.28 469.9 0)
 			(effects
 				(font
@@ -53315,7 +53402,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 259.08 520.7 0)
 			(effects
 				(font
@@ -53384,7 +53471,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 631.19 58.928 90)
 			(effects
 				(font
@@ -53436,7 +53523,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e7939c5a-416a-4a3f-8541-17634da25611")
-		(property "Reference" "RV1"
+		(property "Reference" "RV37"
 			(at 217.17 431.8 90)
 			(effects
 				(font
@@ -53454,7 +53541,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 217.17 438.15 0)
 			(effects
 				(font
@@ -53493,7 +53580,7 @@
 		(instances
 			(project "FM_DRUM_MACHINE"
 				(path "/11c50643-64f9-4549-afde-9664eced946d"
-					(reference "RV1")
+					(reference "RV37")
 					(unit 1)
 				)
 			)
@@ -53594,7 +53681,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 289.56 0)
 			(effects
 				(font
@@ -53669,7 +53756,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 311.15 502.92 0)
 			(effects
 				(font
@@ -53738,7 +53825,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 627.38 116.332 90)
 			(effects
 				(font
@@ -53876,7 +53963,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 285.75 502.92 0)
 			(effects
 				(font
@@ -54159,7 +54246,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 233.68 571.5 0)
 			(effects
 				(font
@@ -54435,7 +54522,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 660.908 63.5 90)
 			(effects
 				(font
@@ -54502,7 +54589,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 734.06 102.87 0)
 			(effects
 				(font
@@ -54608,7 +54695,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 254 214.63 0)
 			(effects
 				(font
@@ -54813,7 +54900,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 69.342 90.17 90)
 			(effects
 				(font
@@ -55013,7 +55100,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 711.2 177.8 0)
 			(effects
 				(font
@@ -55184,13 +55271,12 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 819.15 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf"
@@ -55288,7 +55374,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 855.98 196.85 0)
 			(effects
 				(font
@@ -55537,7 +55623,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Potentiometer:Pot_9mm_Knurl_NoDet"
+		(property "Footprint" "DIYSynthMNL:Potentiometer_RV09_BigPads"
 			(at 372.11 233.68 0)
 			(effects
 				(font
@@ -55609,7 +55695,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 793.75 52.578 90)
 			(effects
 				(font
@@ -55744,7 +55830,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P5.08mm_Vertical_KathodeUp"
+		(property "Footprint" "PCM_4ms_Diode:D_DO-35_P7.62mm_Horizontal"
 			(at 595.63 162.56 0)
 			(effects
 				(font
@@ -55831,7 +55917,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Resistor:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 605.028 250.19 90)
 			(effects
 				(font
@@ -55899,7 +55985,7 @@
 				)
 			)
 		)
-		(property "Footprint" "4ms_Package_SSOP:TSSOP-8_4.4x3mm_Pitch0.65mm"
+		(property "Footprint" "DIYSynthMNL:DIP-8_W7.62mm_LongPads"
 			(at 721.36 69.85 0)
 			(effects
 				(font
@@ -56008,7 +56094,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u"
 			(at 311.15 477.52 0)
 			(effects
 				(font
@@ -56075,7 +56161,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DIYSynthMNL:DIP-14_W7.62mm_LongPads"
 			(at 629.92 129.54 0)
 			(effects
 				(font
