@@ -4918,16 +4918,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "MF" "Same Sky"
+			(property "Description" "2.0 mm Center Pin%2C 2.5 A%2C Right Angle%2C Through Hole%2C Tapered Pins%2C Dc Power Jack Connector"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4937,7 +4928,7 @@
 					(hide yes)
 				)
 			)
-			(property "DESCRIPTION" "2.0 mm Center Pin%2C 2.5 A%2C Right Angle%2C Through Hole%2C Tapered Pins%2C Dc Power Jack Connector"
+			(property "MF" "Same Sky"
 				(at 0 0 0)
 				(effects
 					(font
