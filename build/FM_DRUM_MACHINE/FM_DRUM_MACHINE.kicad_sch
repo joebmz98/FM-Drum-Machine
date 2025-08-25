@@ -33572,7 +33572,7 @@
 				)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "33k"
 			(at 659.13 223.266 90)
 			(effects
 				(font
@@ -51176,7 +51176,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "10k"
 			(at 661.67 234.9499 0)
 			(effects
 				(font

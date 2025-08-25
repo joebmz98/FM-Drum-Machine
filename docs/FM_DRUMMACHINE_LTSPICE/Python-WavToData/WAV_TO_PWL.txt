@@ -1,0 +1,16 @@
+
+import numpy as np
+import scipy.io.wavfile as wav
+
+# Load WAV file
+rate, data = wav.read('drumloop.wav')
+
+# Normalize and create time vector
+duration = len(data) / rate
+time = np.linspace(0, duration, len(data))
+amplitude = data / np.max(np.abs(data))  # Normalize to [-1, 1]
+
+# Save as PWL format
+with open('wav_input.txt', 'w') as f:
+    for t, a in zip(time, amplitude):
+        f.write(f"{t:.6f} {a:.6f}\n")
