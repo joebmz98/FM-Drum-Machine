@@ -57047,7 +57047,7 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "100k"
+		(property "Display" "A20k"
 			(at 662.94 252.7299 0)
 			(effects
 				(font
