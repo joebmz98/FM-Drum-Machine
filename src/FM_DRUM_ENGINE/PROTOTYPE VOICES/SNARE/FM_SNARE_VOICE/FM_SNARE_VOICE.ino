@@ -86,11 +86,11 @@ void setup() {
   snareBodySine5th.amplitude(0.5);
   snareBodySquare5th.amplitude(0.5);
   snareBodyFMSineModulator.amplitude(0.5); // Set modulator amplitude
-  snareSnapNoise.amplitude(0.5);
+  snareSnapNoise.amplitude(0.4);
 
   // Configure Filter
-  snareHPFilter.frequency(80);
-  snareHPFilter.resonance(0);
+  snareHPFilter.frequency(180);
+  snareHPFilter.resonance(1);
   
   // Configure mixers (reduced gains to prevent clipping)
   snareBodyFMMxr.gain(0, 0.3);  // Sine5th modulator

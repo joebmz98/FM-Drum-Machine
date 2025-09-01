@@ -22606,6 +22606,28 @@
 			)
 		)
 	)
+	(global_label "SNARE_SNAP"
+		(shape input)
+		(at 377.19 83.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0b7e7ed0-d16f-421d-b045-bddd3619bbb1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 392.089 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "DIG4"
 		(shape input)
 		(at 412.75 506.73 0)
@@ -23794,7 +23816,7 @@
 			)
 		)
 	)
-	(global_label "SNARE_FM"
+	(global_label "SNARE_SNAP"
 		(shape input)
 		(at 285.75 238.76 180)
 		(fields_autoplaced yes)
@@ -23806,7 +23828,7 @@
 		)
 		(uuid "4979a8f4-f1f4-4908-b5fb-7305d7ab5a82")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 273.2096 238.76 0)
+			(at 270.851 238.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25039,28 +25061,6 @@
 		(uuid "74da1928-8ea7-4c9f-920d-8f97653f754c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 740.3109 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SNARE_FM"
-		(shape input)
-		(at 377.19 83.82 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "7613010c-f8ac-47cf-bac3-688b0380dbac")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 389.7304 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28864,7 +28864,7 @@
 				)
 			)
 		)
-		(property "Value" "SNARE_FM"
+		(property "Value" "SNARE_SNAP"
 			(at 293.37 229.87 90)
 			(effects
 				(font
