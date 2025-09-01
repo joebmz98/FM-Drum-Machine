@@ -32,6 +32,19 @@ AudioEffectEnvelope      snareBodyEnv;
 AudioMixer4              snareMxr;
 AudioFilterStateVariable snareHPFilter;
 
+// ================= HI-HAT AUDIO OBJECTS =================
+AudioSynthWaveformSine   hatsBodyFMSineModulator1;
+AudioSynthWaveformSine   hatsBodyFMSineModulator2;
+AudioMixer4              hatsBodyFMModulatorMxr;
+AudioSynthWaveformModulated hatsBodySquareFMCarrier;
+AudioSynthWaveform       hatsBodySquare5th;
+AudioSynthNoiseWhite     hatsNoise;
+AudioMixer4              hatsBodyMxr;
+AudioMixer4              hatsMxr;
+AudioFilterStateVariable hatsBandPass;
+AudioFilterStateVariable hatsHiPass;
+AudioEffectEnvelope      hatsEnv;
+
 // ================= OUTPUT =================
 AudioOutputI2S           dacOut;
 AudioControlSGTL5000     audioControl;
@@ -60,14 +73,30 @@ AudioConnection          patchCord17(snareSnapEnv, 0, snareMxr, 1);
 AudioConnection          patchCord18(snareBodyEnv, 0, snareMxr, 0);
 AudioConnection          patchCord19(snareMxr, 0, snareHPFilter, 0);
 
+// Hi-Hat connections
+AudioConnection          patchCord20(hatsBodyFMSineModulator1, 0, hatsBodyFMModulatorMxr, 0);
+AudioConnection          patchCord21(hatsBodyFMSineModulator2, 0, hatsBodyFMModulatorMxr, 1);
+AudioConnection          patchCord22(hatsBodyFMModulatorMxr, 0, hatsBodySquareFMCarrier, 0);
+AudioConnection          patchCord23(hatsBodySquareFMCarrier, 0, hatsBodyMxr, 0);
+AudioConnection          patchCord24(hatsBodySquare5th, 0, hatsBodyMxr, 1);
+AudioConnection          patchCord25(hatsNoise, 0, hatsMxr, 1);
+AudioConnection          patchCord26(hatsBodyMxr, 0, hatsMxr, 0);
+AudioConnection          patchCord27(hatsMxr, 0, hatsBandPass, 0);
+AudioConnection          patchCord28(hatsBandPass, 1, hatsHiPass, 0);
+AudioConnection          patchCord29(hatsHiPass, 2, hatsEnv, 0);
+
 // Output connections
-AudioConnection          patchCord20(kickLowPassFilter, 0, dacOut, 0);
-AudioConnection          patchCord21(snareHPFilter, 2, dacOut, 1);
+AudioConnection          patchCord30(kickLowPassFilter, 0, dacOut, 0);
+AudioConnection          patchCord31(snareHPFilter, 2, dacOut, 1);
+AudioConnection          patchCord32(hatsEnv, 0, dacOut, 0);
+AudioConnection          patchCord33(hatsEnv, 0, dacOut, 1);
 
 // ================= MIDI CONFIGURATION =================
 const byte MIDI_CHANNEL = 1;
 const byte KICK_NOTE = 53;
 const byte SNARE_NOTE = 55;
+const byte CLOSED_HIHAT_NOTE = 59;
+const byte OPEN_HIHAT_NOTE = 63;
 
 // ================= POTENTIOMETER PINS =================
 const int decayPotPin = A0;
@@ -90,6 +119,14 @@ float snareInitialPitchBoost = 3.0;
 unsigned long snarePitchDropStartTime = 0;
 const unsigned long snarePitchDropDuration = 20;
 
+// ================= HI-HAT PARAMETERS =================
+float hatsBaseFreq = 300.0;
+bool isOpenHat = false;
+float hatsNoiseLevel = 0.5;
+float hatsBandPassFreq = 5000.0;
+float hatsBandPassResonance = 0.7;
+float hatsDecayTime = 100.0;
+
 void setup() {
   // Initialize potentiometer pins
   pinMode(decayPotPin, INPUT);
@@ -103,7 +140,7 @@ void setup() {
   MIDI.setHandleNoteOn(handleNoteOn);
   MIDI.begin(MIDI_CHANNEL_OMNI);
   
-  AudioMemory(256);
+  AudioMemory(300); // Increased memory for additional voice
   audioControl.enable();
   audioControl.volume(0.8);
   
@@ -169,8 +206,50 @@ void setup() {
   snareSnapEnv.release(40);
   snareSnapEnv.delay(5);
 
+  // ================= CONFIGURE HI-HAT =================
+  hatsBodyFMSineModulator1.amplitude(0.5);
+  hatsBodyFMSineModulator2.amplitude(0.5);
+  hatsBodyFMSineModulator1.frequency(hatsBaseFreq * 1.5);
+  hatsBodyFMSineModulator2.frequency(hatsBaseFreq * 2.0);
+  
+  hatsBodySquareFMCarrier.begin(WAVEFORM_SQUARE);
+  hatsBodySquareFMCarrier.amplitude(0.7);
+  hatsBodySquareFMCarrier.frequency(hatsBaseFreq);
+  
+  hatsBodySquare5th.begin(WAVEFORM_SQUARE);
+  hatsBodySquare5th.amplitude(0.3);
+  hatsBodySquare5th.frequency(hatsBaseFreq * 1.5);
+  
+  hatsNoise.amplitude(0.7);
+  
+  hatsBodyFMModulatorMxr.gain(0, 0.5);
+  hatsBodyFMModulatorMxr.gain(1, 0.5);
+  hatsBodyFMModulatorMxr.gain(2, 0.0);
+  hatsBodyFMModulatorMxr.gain(3, 0.0);
+  
+  hatsBodyMxr.gain(0, 0.5);  // FM Square
+  hatsBodyMxr.gain(1, 0.3);  // Square 5th
+  hatsBodyMxr.gain(2, 0.0);
+  hatsBodyMxr.gain(3, 0.0);
+  
+  hatsMxr.gain(0, 0.5);  // Body
+  hatsMxr.gain(1, 0.5);  // Noise
+  hatsMxr.gain(2, 0.0);
+  hatsMxr.gain(3, 0.0);
+  
+  hatsBandPass.frequency(hatsBandPassFreq);
+  hatsBandPass.resonance(hatsBandPassResonance);
+  
+  hatsHiPass.frequency(1000);  // Fixed 1kHz cutoff as requested
+  hatsHiPass.resonance(0);
+  
+  hatsEnv.attack(1);
+  hatsEnv.decay(hatsDecayTime);
+  hatsEnv.sustain(0);
+  hatsEnv.release(5);
+
   Serial.begin(115200);
-  Serial.println("FM Drum Machine with Kick and Snare Ready");
+  Serial.println("FM Drum Machine with Kick, Snare and Hi-Hat Ready");
 }
 
 void loop() {
@@ -190,6 +269,16 @@ void handleNoteOn(byte channel, byte note, byte velocity) {
     } else if (note == SNARE_NOTE) {
       triggerSnare();
       Serial.print("Snare Triggered via MIDI: Note ");
+      Serial.println(note);
+    } else if (note == CLOSED_HIHAT_NOTE) {
+      isOpenHat = false;
+      triggerHiHat();
+      Serial.print("Closed Hi-Hat Triggered via MIDI: Note ");
+      Serial.println(note);
+    } else if (note == OPEN_HIHAT_NOTE) {
+      isOpenHat = true;
+      triggerHiHat();
+      Serial.print("Open Hi-Hat Triggered via MIDI: Note ");
       Serial.println(note);
     }
   }
@@ -211,6 +300,16 @@ void triggerSnare() {
   updateSnareOscillatorFrequencies(initialFreq);
   snareBodyEnv.noteOn();
   snareSnapEnv.noteOn();
+}
+
+void triggerHiHat() {
+  // Adjust decay based on open/closed hat
+  if (isOpenHat) {
+    hatsEnv.decay(hatsDecayTime * 3); // Longer decay for open hat
+  } else {
+    hatsEnv.decay(hatsDecayTime);
+  }
+  hatsEnv.noteOn();
 }
 
 void readPotsAndUpdate() {
@@ -249,6 +348,21 @@ void readPotsAndUpdate() {
   
   if (snarePitchDropStartTime == 0) {
     updateSnareOscillatorFrequencies(snareBaseFreq);
+  }
+  
+  // Update hi-hat parameters
+  hatsDecayTime = map(decayVal, 0, 1023, 30, 500);
+  hatsBandPassFreq = map(pitchVal, 0, 1023, 2000, 10000);
+  hatsNoiseLevel = map(punchVal, 0, 1023, 0, 100) / 100.0;
+  hatsBandPassResonance = map(pitchDropTimeVal, 0, 1023, 10, 90) / 100.0;
+  
+  hatsMxr.gain(1, hatsNoiseLevel); // Noise level control
+  hatsBandPass.frequency(hatsBandPassFreq);
+  hatsBandPass.resonance(hatsBandPassResonance);
+  
+  // Update hat decay if not currently playing
+  if (!hatsEnv.isActive()) {
+    hatsEnv.decay(isOpenHat ? hatsDecayTime * 3 : hatsDecayTime);
   }
 }
 
