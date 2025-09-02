@@ -4,6 +4,10 @@
 	(generator_version "9.0")
 	(uuid "11c50643-64f9-4549-afde-9664eced946d")
 	(paper "A0")
+	(title_block
+		(title "FM Drum Machine")
+		(company ".axs instruments")
+	)
 	(lib_symbols
 		(symbol "74xx:CD74HC4067M"
 			(exclude_from_sim no)
@@ -9491,12 +9495,6 @@
 		(uuid "6045f598-772d-48af-9b6a-ed5d092c0e97")
 	)
 	(junction
-		(at 518.16 147.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "67aa9457-791f-48dd-a451-987e523ffcfe")
-	)
-	(junction
 		(at 718.82 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9713,6 +9711,12 @@
 		(uuid "89801615-0af0-444b-b2f5-81a6b8daa112")
 	)
 	(junction
+		(at 505.46 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8c40c1d8-40f6-47f8-9d7c-1f87b26cfd5c")
+	)
+	(junction
 		(at 497.84 523.24)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9885,6 +9889,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ad57e9eb-8de0-40e7-90be-e81214af676e")
+	)
+	(junction
+		(at 518.16 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ae0f4b66-4114-441a-993f-6eda4c0c7e17")
 	)
 	(junction
 		(at 91.44 46.99)
@@ -10331,12 +10341,6 @@
 		(uuid "f1ebd5b5-5cde-41fc-9179-3baba6527483")
 	)
 	(junction
-		(at 505.46 147.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f203646e-535b-4340-9df5-41b180535b5c")
-	)
-	(junction
 		(at 302.26 162.56)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10504,7 +10508,7 @@
 	)
 	(wire
 		(pts
-			(xy 505.46 147.32) (xy 518.16 147.32)
+			(xy 505.46 149.86) (xy 518.16 149.86)
 		)
 		(stroke
 			(width 0)
@@ -17244,7 +17248,7 @@
 	)
 	(wire
 		(pts
-			(xy 497.84 147.32) (xy 497.84 160.02)
+			(xy 497.84 149.86) (xy 497.84 160.02)
 		)
 		(stroke
 			(width 0)
@@ -17454,7 +17458,7 @@
 	)
 	(wire
 		(pts
-			(xy 497.84 147.32) (xy 505.46 147.32)
+			(xy 497.84 149.86) (xy 505.46 149.86)
 		)
 		(stroke
 			(width 0)
@@ -18644,6 +18648,16 @@
 	)
 	(wire
 		(pts
+			(xy 518.16 149.86) (xy 518.16 200.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0984b37-6810-480c-9ae6-32c69aa962db")
+	)
+	(wire
+		(pts
 			(xy 283.21 360.68) (xy 283.21 382.27)
 		)
 		(stroke
@@ -19604,7 +19618,7 @@
 	)
 	(wire
 		(pts
-			(xy 518.16 147.32) (xy 538.48 147.32)
+			(xy 518.16 149.86) (xy 538.48 149.86)
 		)
 		(stroke
 			(width 0)
@@ -19711,16 +19725,6 @@
 			(type default)
 		)
 		(uuid "c64b4c74-e482-4985-a255-90e94aea8d2a")
-	)
-	(wire
-		(pts
-			(xy 505.46 147.32) (xy 505.46 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6baa641-1a45-423b-9c90-880651020c41")
 	)
 	(wire
 		(pts
@@ -20011,16 +20015,6 @@
 			(type default)
 		)
 		(uuid "ced489ca-8c15-409a-b52a-9356f09f25c9")
-	)
-	(wire
-		(pts
-			(xy 518.16 147.32) (xy 518.16 200.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cee254dc-5a76-484e-b9ae-3e15685dc8da")
 	)
 	(wire
 		(pts
@@ -21954,6 +21948,16 @@
 	)
 	(wire
 		(pts
+			(xy 505.46 149.86) (xy 505.46 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f79202ac-b868-4de4-8b6f-a45052776a4d")
+	)
+	(wire
+		(pts
 			(xy 280.67 408.94) (xy 294.64 408.94)
 		)
 		(stroke
@@ -22366,6 +22370,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "KICK_ATTACK"
+		(shape input)
+		(at 285.75 181.61 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "011ad513-18f1-4171-ba85-cffbb97c73b8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 270.73 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -24352,7 +24378,7 @@
 	)
 	(global_label "AGND"
 		(shape input)
-		(at 538.48 147.32 0)
+		(at 538.48 149.86 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24362,7 +24388,7 @@
 		)
 		(uuid "5e3acb62-3977-42d8-8413-549584e6d00c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 546.4243 147.32 0)
+			(at 546.4243 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25472,28 +25498,6 @@
 			)
 		)
 	)
-	(global_label "KICK_PITCHENVTIME"
-		(shape input)
-		(at 285.75 181.61 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7d107e07-2b55-40c7-88d0-3d8c013d0d22")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 264.1986 181.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "KICK_DCBIAS_IN"
 		(shape input)
 		(at 626.11 45.72 0)
@@ -25890,7 +25894,7 @@
 			)
 		)
 	)
-	(global_label "LOTOM_PITCHENVTIME"
+	(global_label "LOTOM_ATTACK"
 		(shape input)
 		(at 403.86 181.61 180)
 		(fields_autoplaced yes)
@@ -25902,7 +25906,7 @@
 		)
 		(uuid "849ad4a8-54d7-459f-9a28-1241d664b371")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 380.6153 181.61 0)
+			(at 387.1467 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26132,7 +26136,7 @@
 			)
 		)
 	)
-	(global_label "HITOM_PITCHENVTIME"
+	(global_label "HITOM_ATTACK"
 		(shape input)
 		(at 447.04 83.82 0)
 		(fields_autoplaced yes)
@@ -26144,7 +26148,7 @@
 		)
 		(uuid "8ecd7535-6519-423c-a9dc-29dfe6b4b783")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 469.8614 83.82 0)
+			(at 463.33 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26704,7 +26708,7 @@
 			)
 		)
 	)
-	(global_label "KICK_PITCHENVTIME"
+	(global_label "KICK_ATTACK"
 		(shape input)
 		(at 369.57 73.66 0)
 		(fields_autoplaced yes)
@@ -26716,7 +26720,7 @@
 		)
 		(uuid "a7521457-82cd-41d4-b89f-dc79efb99a82")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 391.1214 73.66 0)
+			(at 384.59 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27364,7 +27368,7 @@
 			)
 		)
 	)
-	(global_label "LOTOM_PITCHENVTIME"
+	(global_label "LOTOM_ATTACK"
 		(shape input)
 		(at 454.66 73.66 0)
 		(fields_autoplaced yes)
@@ -27376,7 +27380,7 @@
 		)
 		(uuid "c5885ca7-5b84-47d0-bbf9-95790b168a9d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 477.9047 73.66 0)
+			(at 471.3733 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27804,7 +27808,7 @@
 			)
 		)
 	)
-	(global_label "HITOM_PITCHENVTIME"
+	(global_label "HITOM_ATTACK"
 		(shape input)
 		(at 403.86 238.76 180)
 		(fields_autoplaced yes)
@@ -27816,7 +27820,7 @@
 		)
 		(uuid "d3beda1e-b0a1-4738-bd30-83c2f20d1f67")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 381.0386 238.76 0)
+			(at 387.57 238.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33699,7 +33703,7 @@
 				)
 			)
 		)
-		(property "Value" "HITOM_PITCHENVTIME"
+		(property "Value" "HITOM_ATTACK"
 			(at 411.48 229.87 90)
 			(effects
 				(font
@@ -41712,7 +41716,7 @@
 				)
 			)
 		)
-		(property "Value" "KICK_PITCHENVTIME"
+		(property "Value" "KICK_ATTACK"
 			(at 293.37 172.72 90)
 			(effects
 				(font
@@ -47106,7 +47110,7 @@
 				)
 			)
 		)
-		(property "Value" "LOTOM_PITCHENVTIME"
+		(property "Value" "LOTOM_ATTACK"
 			(at 411.48 172.72 90)
 			(effects
 				(font
