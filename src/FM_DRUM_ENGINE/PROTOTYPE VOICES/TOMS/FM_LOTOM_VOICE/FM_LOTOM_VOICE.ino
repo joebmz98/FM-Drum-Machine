@@ -80,7 +80,7 @@ void setup() {
   lotomNoise.amplitude(0.7);
 
   // Configure Filter
-  lotomLowPassFilter.frequency(2000);
+  lotomLowPassFilter.frequency(1500);
   lotomLowPassFilter.resonance(0);
   
   // Configure mod mixer
@@ -108,7 +108,7 @@ void setup() {
   lotomModEnv.release(20);
 
   // Noise Envelope
-  lotomNoiseEnvelope.attack(2);
+  lotomNoiseEnvelope.attack(0);
   lotomNoiseEnvelope.decay(10);
   lotomNoiseEnvelope.sustain(0);
   lotomNoiseEnvelope.release(0);
@@ -159,12 +159,12 @@ void triggerlotom() {
 void readPotsAndUpdate() {
   // Read all pots
   baseFreq = map(analogRead(pitchPotPin), 0, 1023, 60, 120);
-  float decayTime = map(analogRead(decayPotPin), 0, 1023, 50, 700);
-  pitchDropDuration = map(analogRead(pitchDropTimePotPin), 0, 1023, 35, 1000);
+  float decayTime = map(analogRead(decayPotPin), 0, 1023, 100, 700);
+  pitchDropDuration = map(analogRead(pitchDropTimePotPin), 0, 1023, 1, 200);
   initialPitchBoost = map(analogRead(punchPotPin), 0, 1023, 10, 60) / 10.0;
   
   // UPDATED: Pot A2 now controls noise level (0.0 to 1.0)
-  noiseLevel = map(analogRead(punchPotPin), 0, 1023, 0, 100) / 100.0;
+  noiseLevel = map(analogRead(punchPotPin), 0, 1023, 0, 120) / 100.0;
   
   // Update parameters
   lotomEnv.decay(decayTime);

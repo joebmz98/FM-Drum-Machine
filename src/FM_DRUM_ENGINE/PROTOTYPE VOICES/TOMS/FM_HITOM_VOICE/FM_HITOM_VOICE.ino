@@ -80,7 +80,7 @@ void setup() {
   hitomNoise.amplitude(0.7);
 
   // Configure Filter
-  hitomLowPassFilter.frequency(2000);
+  hitomLowPassFilter.frequency(2500);
   hitomLowPassFilter.resonance(0);
   
   // Configure mod mixer
@@ -108,7 +108,7 @@ void setup() {
   hitomModEnv.release(20);
 
   // Noise Envelope
-  hitomNoiseEnvelope.attack(2);
+  hitomNoiseEnvelope.attack(0);
   hitomNoiseEnvelope.decay(10);
   hitomNoiseEnvelope.sustain(0);
   hitomNoiseEnvelope.release(0);
@@ -159,8 +159,8 @@ void triggerHitom() {
 void readPotsAndUpdate() {
   // Read all pots
   baseFreq = map(analogRead(pitchPotPin), 0, 1023, 150, 220);
-  float decayTime = map(analogRead(decayPotPin), 0, 1023, 50, 700);
-  pitchDropDuration = map(analogRead(pitchDropTimePotPin), 0, 1023, 35, 1000);
+  float decayTime = map(analogRead(decayPotPin), 0, 1023, 70, 700);
+  pitchDropDuration = map(analogRead(pitchDropTimePotPin), 0, 1023, 1, 200);
   initialPitchBoost = map(analogRead(punchPotPin), 0, 1023, 10, 60) / 10.0;
   
   // UPDATED: Pot A2 now controls noise level (0.0 to 1.0)

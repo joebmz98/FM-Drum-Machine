@@ -19,6 +19,29 @@ AudioMixer4              kickMxr;
 AudioEffectEnvelope      kickEnv;
 AudioFilterStateVariable kickLowPassFilter;
 
+// ================= TOM DRUM AUDIO OBJECTS =================
+// Low Tom
+AudioSynthWaveformSine   loTomSineMod;
+AudioEffectEnvelope      loTomModEnv;
+AudioMixer4              loTomSineModMxr;
+AudioSynthNoiseWhite     loTomNoise;
+AudioSynthWaveformSineModulated loTomSineFM;
+AudioEffectEnvelope      loTomNoiseEnvelope;
+AudioMixer4              loTomMxr;
+AudioEffectEnvelope      loTomEnv;
+AudioFilterStateVariable loTomLowPassFilter;
+
+// High Tom
+AudioSynthWaveformSine   hiTomSineMod;
+AudioEffectEnvelope      hiTomModEnv;
+AudioMixer4              hiTomSineModMxr;
+AudioSynthNoiseWhite     hiTomNoise;
+AudioSynthWaveformSineModulated hiTomSineFM;
+AudioEffectEnvelope      hiTomNoiseEnvelope;
+AudioMixer4              hiTomMxr;
+AudioEffectEnvelope      hiTomEnv;
+AudioFilterStateVariable hiTomLowPassFilter;
+
 // ================= SNARE DRUM AUDIO OBJECTS =================
 AudioSynthWaveform       snareBodySquare5th;
 AudioSynthWaveform       snareBodySine5th;
@@ -63,6 +86,28 @@ AudioConnection          patchCord7(kickNoiseEnvelope, 0, kickMxr, 1);
 AudioConnection          patchCord8(kickEnv, 0, kickMxr, 0);
 AudioConnection          patchCord9(kickMxr, 0, kickLowPassFilter, 0);
 
+// Low Tom connections
+AudioConnection          patchCord40(loTomSineMod, loTomModEnv);
+AudioConnection          patchCord41(loTomSineMod, 0, loTomSineModMxr, 0);
+AudioConnection          patchCord42(loTomModEnv, 0, loTomSineModMxr, 1);
+AudioConnection          patchCord43(loTomSineModMxr, loTomSineFM);
+AudioConnection          patchCord44(loTomNoise, loTomNoiseEnvelope);
+AudioConnection          patchCord45(loTomSineFM, loTomEnv);
+AudioConnection          patchCord46(loTomNoiseEnvelope, 0, loTomMxr, 1);
+AudioConnection          patchCord47(loTomEnv, 0, loTomMxr, 0);
+AudioConnection          patchCord48(loTomMxr, 0, loTomLowPassFilter, 0);
+
+// High Tom connections
+AudioConnection          patchCord50(hiTomSineMod, hiTomModEnv);
+AudioConnection          patchCord51(hiTomSineMod, 0, hiTomSineModMxr, 0);
+AudioConnection          patchCord52(hiTomModEnv, 0, hiTomSineModMxr, 1);
+AudioConnection          patchCord53(hiTomSineModMxr, hiTomSineFM);
+AudioConnection          patchCord54(hiTomNoise, hiTomNoiseEnvelope);
+AudioConnection          patchCord55(hiTomSineFM, hiTomEnv);
+AudioConnection          patchCord56(hiTomNoiseEnvelope, 0, hiTomMxr, 1);
+AudioConnection          patchCord57(hiTomEnv, 0, hiTomMxr, 0);
+AudioConnection          patchCord58(hiTomMxr, 0, hiTomLowPassFilter, 0);
+
 // Snare connections
 AudioConnection          patchCord10(snareBodySquare5th, 0, snareBodyFMMxr, 1);
 AudioConnection          patchCord11(snareBodySine5th, 0, snareBodyFMMxr, 0);
@@ -91,6 +136,8 @@ AudioConnection          patchCord29(hatsHiPass, 2, hatsEnv, 0);
 AudioConnection          patchCord30(kickLowPassFilter, 0, leftOutMxr, 0);   // Kick to left channel
 AudioConnection          patchCord31(hatsEnv, 0, leftOutMxr, 1);             // Hi-hat to left channel
 AudioConnection          patchCord32(snareHPFilter, 2, rightOutMxr, 0);      // Snare to right channel
+AudioConnection          patchCord60(loTomLowPassFilter, 0, rightOutMxr, 1); // Low Tom to right channel
+AudioConnection          patchCord61(hiTomLowPassFilter, 0, rightOutMxr, 2); // High Tom to right channel
 
 // Connect mixers to DAC outputs
 AudioConnection          patchCord33(leftOutMxr, 0, dacOut, 0);              // Left mixer to left output
@@ -102,13 +149,15 @@ const byte KICK_NOTE = 53;
 const byte SNARE_NOTE = 55;
 const byte CLOSED_HIHAT_NOTE = 59;
 const byte OPEN_HIHAT_NOTE = 63;
+const byte LO_TOM_NOTE = 65;
+const byte HI_TOM_NOTE = 69;
 
 // ================= POTENTIOMETER PINS =================
 // Kick drum pots
 const int kickDecayPotPin = A0;
-const int kickTumePotPin = A1;
+const int kickTunePotPin = A1;
 const int kickPunchPotPin = A2;
-const int kickPitchEnvLengthPotPin = A3;
+const int kickNoiseLevelPotPin = A3; // Changed from pitch env length to noise level
 
 // Snare drum pots
 const int snareDecayPotPin = A0;
@@ -128,7 +177,22 @@ float kickBaseFreq = 55.0;
 float kickInitialPitchBoost = 2.0;
 float kickNoiseLevel = 0.0;
 unsigned long kickPitchDropStartTime = 0;
-unsigned long kickPitchDropDuration = 30;
+const unsigned long kickPitchDropDuration = 20; // Fixed at 20ms
+
+// ================= TOM PARAMETERS =================
+// Low Tom
+float loTomBaseFreq = 80.0;
+float loTomInitialPitchBoost = 1.8;
+float loTomNoiseLevel = 0.0;
+unsigned long loTomPitchDropStartTime = 0;
+const unsigned long loTomPitchDropDuration = 20; // Fixed at 20ms
+
+// High Tom
+float hiTomBaseFreq = 120.0;
+float hiTomInitialPitchBoost = 1.6;
+float hiTomNoiseLevel = 0.0;
+unsigned long hiTomPitchDropStartTime = 0;
+const unsigned long hiTomPitchDropDuration = 20; // Fixed at 20ms
 
 // ================= SNARE PARAMETERS =================
 float snareBaseFreq = 180.0;
@@ -148,9 +212,9 @@ void setup() {
   
   // Initialize potentiometer pins
   pinMode(kickDecayPotPin, INPUT);
-  pinMode(kickTumePotPin, INPUT);
+  pinMode(kickTunePotPin, INPUT);
   pinMode(kickPunchPotPin, INPUT);
-  pinMode(kickPitchEnvLengthPotPin, INPUT);
+  pinMode(kickNoiseLevelPotPin, INPUT);
   pinMode(snareDecayPotPin, INPUT);
   pinMode(snareTunePotPin, INPUT);
   pinMode(snarePunchPotPin, INPUT);
@@ -165,7 +229,7 @@ void setup() {
   MIDI.setHandleNoteOn(handleNoteOn);
   MIDI.begin(MIDI_CHANNEL_OMNI);
   
-  AudioMemory(300);
+  AudioMemory(400); // Increased memory for additional voices
   audioControl.enable();
   audioControl.volume(0.8);
   
@@ -176,38 +240,24 @@ void setup() {
   leftOutMxr.gain(3, 0.0);  // Unused
   
   rightOutMxr.gain(0, 0.8); // Snare level on right channel
-  rightOutMxr.gain(1, 0.0); // Unused
-  rightOutMxr.gain(2, 0.0); // Unused
+  rightOutMxr.gain(1, 0.8); // Low Tom level on right channel
+  rightOutMxr.gain(2, 0.8); // High Tom level on right channel
   rightOutMxr.gain(3, 0.0); // Unused
   
   // ================= CONFIGURE KICK =================
-  kickSineFM.amplitude(0.7);
-  kickSineFM.frequency(kickBaseFreq);
-  updateKickModulatorFrequency();
-  kickSineMod.amplitude(0.7);
-  kickNoise.amplitude(0.7);
-  kickLowPassFilter.frequency(2000);
-  kickLowPassFilter.resonance(0);
-  kickSineModMxr.gain(0, 0.7);
-  kickSineModMxr.gain(1, 1.0);
-  kickSineModMxr.gain(2, 0.0);
-  kickSineModMxr.gain(3, 0.0);
-  kickMxr.gain(0, 1.0);
-  kickMxr.gain(1, 0.0);
-  kickMxr.gain(2, 0.0);
-  kickMxr.gain(3, 0.0);
-  kickEnv.attack(1);
-  kickEnv.decay(150);
-  kickEnv.sustain(0);
-  kickEnv.release(50);
-  kickModEnv.attack(2);
-  kickModEnv.decay(50);
-  kickModEnv.sustain(0);
-  kickModEnv.release(20);
-  kickNoiseEnvelope.attack(2);
-  kickNoiseEnvelope.decay(10);
-  kickNoiseEnvelope.sustain(0);
-  kickNoiseEnvelope.release(0);
+  configureDrumVoice(kickSineFM, kickSineMod, kickNoise, kickLowPassFilter, 
+                    kickSineModMxr, kickMxr, kickEnv, kickModEnv, kickNoiseEnvelope,
+                    kickBaseFreq, kickInitialPitchBoost);
+
+  // ================= CONFIGURE LOW TOM =================
+  configureDrumVoice(loTomSineFM, loTomSineMod, loTomNoise, loTomLowPassFilter, 
+                    loTomSineModMxr, loTomMxr, loTomEnv, loTomModEnv, loTomNoiseEnvelope,
+                    loTomBaseFreq, loTomInitialPitchBoost);
+
+  // ================= CONFIGURE HIGH TOM =================
+  configureDrumVoice(hiTomSineFM, hiTomSineMod, hiTomNoise, hiTomLowPassFilter, 
+                    hiTomSineModMxr, hiTomMxr, hiTomEnv, hiTomModEnv, hiTomNoiseEnvelope,
+                    hiTomBaseFreq, hiTomInitialPitchBoost);
 
   // ================= CONFIGURE SNARE =================
   snareBodySine5th.begin(WAVEFORM_SINE);
@@ -245,6 +295,7 @@ void setup() {
   // ================= CONFIGURE HI-HAT =================
   hatsBodySquareFMCarrier.begin(WAVEFORM_SQUARE);
   hatsBodySquare5th.begin(WAVEFORM_SQUARE);
+  
   // Set initial frequencies 
   updateHiHatOscillatorFrequencies(hatsBaseFreq);
   
@@ -253,12 +304,12 @@ void setup() {
   hatsBodySquare5th.amplitude(0.5);
   hatsBodyFMSineModulator1.amplitude(0.5);
   hatsBodyFMSineModulator2.amplitude(0.5);
-  hatsNoise.amplitude(0.5); // Increased noise level
+  hatsNoise.amplitude(0.5);
 
   // Configure Filters
-  hatsBandPass.frequency(5000); // Higher frequency for more hi-hat character
+  hatsBandPass.frequency(5000);
   hatsBandPass.resonance(0.7);
-  hatsHiPass.frequency(3000);  // Higher cutoff for brighter sound
+  hatsHiPass.frequency(3000);
   hatsHiPass.resonance(0.5);
   
   // Configure mixers
@@ -273,7 +324,7 @@ void setup() {
   hatsBodyMxr.gain(3, 0.0);
   
   hatsMxr.gain(0, 0.8);
-  hatsMxr.gain(1, 0.8); // Increased noise level
+  hatsMxr.gain(1, 0.8);
   hatsMxr.gain(2, 0.0);
   hatsMxr.gain(3, 0.0);
   
@@ -281,31 +332,58 @@ void setup() {
   hatsEnv.attack(1);
   hatsEnv.decay(closedDecayTime);
   hatsEnv.sustain(0);
-  hatsEnv.release(5); // Shorter release for hi-hat
+  hatsEnv.release(5);
 
-  Serial.println("FM Drum Machine with Kick, Snare and Hi-Hat Ready");
+  Serial.println("FM Drum Machine with Kick, Snare, Hi-Hat and Toms Ready");
   Serial.println("Listening for MIDI notes:");
   Serial.println("53: Kick, 55: Snare, 59: Closed Hi-Hat, 63: Open Hi-Hat");
-  Serial.println("Closed hi-hat decay: 15ms - 90ms");
-  Serial.println("Open hi-hat decay: 120ms - 300ms");
+  Serial.println("65: Low Tom, 69: High Tom");
   Serial.println("Output routing:");
   Serial.println("Left channel: Kick + Hi-hat");
-  Serial.println("Right channel: Snare");
+  Serial.println("Right channel: Snare + Low Tom + High Tom");
+}
+
+void configureDrumVoice(AudioSynthWaveformSineModulated &sineFM, AudioSynthWaveformSine &sineMod, 
+                       AudioSynthNoiseWhite &noise, AudioFilterStateVariable &filter,
+                       AudioMixer4 &sineModMxr, AudioMixer4 &mainMxr, AudioEffectEnvelope &env,
+                       AudioEffectEnvelope &modEnv, AudioEffectEnvelope &noiseEnv,
+                       float baseFreq, float pitchBoost) {
+  sineFM.amplitude(0.7);
+  sineFM.frequency(baseFreq);
+  updateModulatorFrequency(sineMod, baseFreq);
+  sineMod.amplitude(0.7);
+  noise.amplitude(0.7);
+  filter.frequency(2000);
+  filter.resonance(0);
+  sineModMxr.gain(0, 0.7);
+  sineModMxr.gain(1, 1.0);
+  sineModMxr.gain(2, 0.0);
+  sineModMxr.gain(3, 0.0);
+  mainMxr.gain(0, 1.0);
+  mainMxr.gain(1, 0.0);
+  mainMxr.gain(2, 0.0);
+  mainMxr.gain(3, 0.0);
+  env.attack(1);
+  env.decay(150);
+  env.sustain(0);
+  env.release(50);
+  modEnv.attack(2);
+  modEnv.decay(50);
+  modEnv.sustain(0);
+  modEnv.release(20);
+  noiseEnv.attack(2);
+  noiseEnv.decay(10);
+  noiseEnv.sustain(0);
+  noiseEnv.release(0);
 }
 
 void loop() {
   MIDI.read();
   readPotsAndUpdate();
   updateKickPitchDrop();
+  updateLoTomPitchDrop();
+  updateHiTomPitchDrop();
   updateSnarePitchDrop();
-  
-  // Debug: Print hi-hat status occasionally
-  static unsigned long lastDebugTime = 0;
-  if (millis() - lastDebugTime > 2000) {
-    lastDebugTime = millis();
-    Serial.print("Hi-hat active: ");
-    Serial.println(hatsEnv.isActive() ? "YES" : "NO");
-  }
   
   delay(1);
 }
@@ -321,12 +399,20 @@ void handleNoteOn(byte channel, byte note, byte velocity) {
       Serial.print("Snare Triggered via MIDI: Note ");
       Serial.println(note);
     } else if (note == CLOSED_HIHAT_NOTE) {
-      triggerHiHat(false); // Closed hi-hat
+      triggerHiHat(false);
       Serial.print("Closed Hi-Hat Triggered via MIDI: Note ");
       Serial.println(note);
     } else if (note == OPEN_HIHAT_NOTE) {
-      triggerHiHat(true); // Open hi-hat
+      triggerHiHat(true);
       Serial.print("Open Hi-Hat Triggered via MIDI: Note ");
+      Serial.println(note);
+    } else if (note == LO_TOM_NOTE) {
+      triggerLoTom();
+      Serial.print("Low Tom Triggered via MIDI: Note ");
+      Serial.println(note);
+    } else if (note == HI_TOM_NOTE) {
+      triggerHiTom();
+      Serial.print("High Tom Triggered via MIDI: Note ");
       Serial.println(note);
     }
   }
@@ -336,10 +422,30 @@ void triggerKick() {
   kickPitchDropStartTime = millis();
   float initialFreq = kickBaseFreq * kickInitialPitchBoost;
   kickSineFM.frequency(initialFreq);
-  updateKickModulatorFrequency();
+  updateModulatorFrequency(kickSineMod, kickBaseFreq);
   kickEnv.noteOn();
   kickModEnv.noteOn();
   kickNoiseEnvelope.noteOn();
+}
+
+void triggerLoTom() {
+  loTomPitchDropStartTime = millis();
+  float initialFreq = loTomBaseFreq * loTomInitialPitchBoost;
+  loTomSineFM.frequency(initialFreq);
+  updateModulatorFrequency(loTomSineMod, loTomBaseFreq);
+  loTomEnv.noteOn();
+  loTomModEnv.noteOn();
+  loTomNoiseEnvelope.noteOn();
+}
+
+void triggerHiTom() {
+  hiTomPitchDropStartTime = millis();
+  float initialFreq = hiTomBaseFreq * hiTomInitialPitchBoost;
+  hiTomSineFM.frequency(initialFreq);
+  updateModulatorFrequency(hiTomSineMod, hiTomBaseFreq);
+  hiTomEnv.noteOn();
+  hiTomModEnv.noteOn();
+  hiTomNoiseEnvelope.noteOn();
 }
 
 void triggerSnare() {
@@ -352,28 +458,17 @@ void triggerSnare() {
 
 void triggerHiHat(bool openHat) {
   isOpenHat = openHat;
-  
-  // Update decay time based on whether it's an open hat or not
   float currentDecayTime = openHat ? openDecayTime : closedDecayTime;
-  
   hatsEnv.decay(currentDecayTime);
-  
-  // Trigger envelope
   hatsEnv.noteOn();
-  
-  Serial.print("Hi-hat triggered: ");
-  Serial.print(openHat ? "OPEN" : "CLOSED");
-  Serial.print(" with decay: ");
-  Serial.print(currentDecayTime);
-  Serial.println("ms");
 }
 
 void readPotsAndUpdate() {
   // Read all pots
   int kickDecayVal = analogRead(kickDecayPotPin);
-  int kickTuneVal = analogRead(kickTumePotPin);
+  int kickTuneVal = analogRead(kickTunePotPin);
   int kickPunchVal = analogRead(kickPunchPotPin);
-  int kickPitchEnvLengthVal = analogRead(kickPitchEnvLengthPotPin);
+  int kickNoiseLevelVal = analogRead(kickNoiseLevelPotPin);
   
   int snareDecayVal = analogRead(snareDecayPotPin);
   int snareTuneVal = analogRead(snareTunePotPin);
@@ -389,13 +484,25 @@ void readPotsAndUpdate() {
   // Update kick parameters
   kickBaseFreq = map(kickTuneVal, 0, 1023, 30, 120);
   float kickDecayTime = map(kickDecayVal, 0, 1023, 50, 700);
-  kickPitchDropDuration = map(kickPitchEnvLengthVal, 0, 1023, 35, 700);
   kickInitialPitchBoost = map(kickPunchVal, 0, 1023, 10, 60) / 10.0;
-  kickNoiseLevel = map(kickPunchVal, 0, 1023, 0, 100) / 100.0;
+  kickNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 100) / 100.0; // Now controlled by A3
   
   kickEnv.decay(kickDecayTime);
   kickMxr.gain(1, kickNoiseLevel);
-  updateKickModulatorFrequency();
+  updateModulatorFrequency(kickSineMod, kickBaseFreq);
+  
+  // Update tom parameters (using kick pots for now)
+  loTomBaseFreq = map(kickTuneVal, 0, 1023, 60, 100);   // Low tom range
+  hiTomBaseFreq = map(kickTuneVal, 0, 1023, 100, 180);  // High tom range
+  
+  loTomInitialPitchBoost = map(kickPunchVal, 0, 1023, 10, 40) / 10.0;
+  hiTomInitialPitchBoost = map(kickPunchVal, 0, 1023, 10, 30) / 10.0;
+  
+  loTomNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 80) / 100.0;
+  hiTomNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 60) / 100.0;
+  
+  loTomMxr.gain(1, loTomNoiseLevel);
+  hiTomMxr.gain(1, hiTomNoiseLevel);
   
   // Update snare parameters
   snareBaseFreq = map(snareTuneVal, 0, 1023, 150, 600);
@@ -437,9 +544,9 @@ void readPotsAndUpdate() {
   hatsBandPass.resonance(resonance);
 }
 
-void updateKickModulatorFrequency() {
-  float modulatorFreq = kickBaseFreq * 1.5;
-  kickSineMod.frequency(modulatorFreq);
+void updateModulatorFrequency(AudioSynthWaveformSine &sineMod, float baseFreq) {
+  float modulatorFreq = baseFreq * 1.5;
+  sineMod.frequency(modulatorFreq);
 }
 
 void updateSnareOscillatorFrequencies(float freq) {
@@ -452,34 +559,42 @@ void updateSnareOscillatorFrequencies(float freq) {
 }
 
 void updateHiHatOscillatorFrequencies(float freq) {
-  // Set the FM carrier frequency to the base frequency
   hatsBodySquareFMCarrier.frequency(freq);
-  
-  // Set modulator frequencies with out-of-tune ratios
-  float modulator1Freq = freq * 1.3;  // Slightly detuned
-  float modulator2Freq = freq * 1.7;  // More detuned
+  float modulator1Freq = freq * 1.3;
+  float modulator2Freq = freq * 1.7;
   hatsBodyFMSineModulator1.frequency(modulator1Freq);
   hatsBodyFMSineModulator2.frequency(modulator2Freq);
-  
-  // Set the 5th oscillator to a perfect fifth above the base frequency
   float fifthFreq = freq * 1.5;
   hatsBodySquare5th.frequency(fifthFreq);
 }
 
-void updateKickPitchDrop() {
-  if (kickPitchDropStartTime > 0) {
-    unsigned long elapsed = millis() - kickPitchDropStartTime;
+void updatePitchDrop(AudioSynthWaveformSineModulated &sineFM, AudioSynthWaveformSine &sineMod, 
+                    float baseFreq, float initialPitchBoost, unsigned long &pitchDropStartTime) {
+  if (pitchDropStartTime > 0) {
+    unsigned long elapsed = millis() - pitchDropStartTime;
     if (elapsed < kickPitchDropDuration) {
       float progress = (float)elapsed / kickPitchDropDuration;
-      float freqMultiplier = kickInitialPitchBoost - (progress * (kickInitialPitchBoost - 1.0));
-      kickSineFM.frequency(kickBaseFreq * freqMultiplier);
-      updateKickModulatorFrequency();
+      float freqMultiplier = initialPitchBoost - (progress * (initialPitchBoost - 1.0));
+      sineFM.frequency(baseFreq * freqMultiplier);
+      updateModulatorFrequency(sineMod, baseFreq * freqMultiplier);
     } else {
-      kickSineFM.frequency(kickBaseFreq);
-      updateKickModulatorFrequency();
-      kickPitchDropStartTime = 0;
+      sineFM.frequency(baseFreq);
+      updateModulatorFrequency(sineMod, baseFreq);
+      pitchDropStartTime = 0;
     }
   }
+}
+
+void updateKickPitchDrop() {
+  updatePitchDrop(kickSineFM, kickSineMod, kickBaseFreq, kickInitialPitchBoost, kickPitchDropStartTime);
+}
+
+void updateLoTomPitchDrop() {
+  updatePitchDrop(loTomSineFM, loTomSineMod, loTomBaseFreq, loTomInitialPitchBoost, loTomPitchDropStartTime);
+}
+
+void updateHiTomPitchDrop() {
+  updatePitchDrop(hiTomSineFM, hiTomSineMod, hiTomBaseFreq, hiTomInitialPitchBoost, hiTomPitchDropStartTime);
 }
 
 void updateSnarePitchDrop() {
