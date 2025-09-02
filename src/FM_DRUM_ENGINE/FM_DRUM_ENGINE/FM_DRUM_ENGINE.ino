@@ -159,9 +159,12 @@ const int kickTunePotPin = A1;
 const int kickPunchPotPin = A2;
 const int kickNoiseLevelPotPin = A3; // Changed from pitch env length to noise level
 
+// Tom drum pots (share with kick for now)
+const int tomDecayPotPin = A0;       // Tom decay control
+
 // Snare drum pots
 const int snareDecayPotPin = A0;
-const int snareTunePotPin = A1;
+const int snareTumePotPin = A1;
 const int snarePunchPotPin = A2;
 const int snareSnapPotPin = A3;
 const int snareTimbrePotPin = A4;
@@ -184,6 +187,7 @@ const unsigned long kickPitchDropDuration = 20; // Fixed at 20ms
 float loTomBaseFreq = 80.0;
 float loTomInitialPitchBoost = 1.8;
 float loTomNoiseLevel = 0.0;
+float loTomDecayTime = 200.0;        // Added decay time for low tom
 unsigned long loTomPitchDropStartTime = 0;
 const unsigned long loTomPitchDropDuration = 20; // Fixed at 20ms
 
@@ -191,6 +195,7 @@ const unsigned long loTomPitchDropDuration = 20; // Fixed at 20ms
 float hiTomBaseFreq = 120.0;
 float hiTomInitialPitchBoost = 1.6;
 float hiTomNoiseLevel = 0.0;
+float hiTomDecayTime = 150.0;        // Added decay time for high tom
 unsigned long hiTomPitchDropStartTime = 0;
 const unsigned long hiTomPitchDropDuration = 20; // Fixed at 20ms
 
@@ -206,60 +211,42 @@ float closedDecayTime = 50.0;      // Default closed hi-hat decay
 float openDecayTime = 200.0;       // Default open hi-hat decay
 bool isOpenHat = false;
 
-void setup() {
-  Serial.begin(115200);
-  Serial.println("Initializing FM Drum Machine...");
-  
-  // Initialize potentiometer pins
-  pinMode(kickDecayPotPin, INPUT);
-  pinMode(kickTunePotPin, INPUT);
-  pinMode(kickPunchPotPin, INPUT);
-  pinMode(kickNoiseLevelPotPin, INPUT);
-  pinMode(snareDecayPotPin, INPUT);
-  pinMode(snareTunePotPin, INPUT);
-  pinMode(snarePunchPotPin, INPUT);
-  pinMode(snareSnapPotPin, INPUT);
-  pinMode(snareTimbrePotPin, INPUT);
-  pinMode(hatsDecayPotPin, INPUT);
-  pinMode(hatsTonePotPin, INPUT);
-  pinMode(hatsTimbrePotPin, INPUT);
-  pinMode(hatsResonancePotPin, INPUT);
-  
-  // Initialize MIDI
-  MIDI.setHandleNoteOn(handleNoteOn);
-  MIDI.begin(MIDI_CHANNEL_OMNI);
-  
-  AudioMemory(400); // Increased memory for additional voices
-  audioControl.enable();
-  audioControl.volume(0.8);
-  
-  // Configure output mixers
-  leftOutMxr.gain(0, 0.8);  // Kick level on left channel
-  leftOutMxr.gain(1, 0.8);  // Hi-hat level on left channel
-  leftOutMxr.gain(2, 0.0);  // Unused
-  leftOutMxr.gain(3, 0.0);  // Unused
-  
-  rightOutMxr.gain(0, 0.8); // Snare level on right channel
-  rightOutMxr.gain(1, 0.8); // Low Tom level on right channel
-  rightOutMxr.gain(2, 0.8); // High Tom level on right channel
-  rightOutMxr.gain(3, 0.0); // Unused
-  
-  // ================= CONFIGURE KICK =================
-  configureDrumVoice(kickSineFM, kickSineMod, kickNoise, kickLowPassFilter, 
-                    kickSineModMxr, kickMxr, kickEnv, kickModEnv, kickNoiseEnvelope,
-                    kickBaseFreq, kickInitialPitchBoost);
+// ================= CONFIGURATION FUNCTIONS =================
+void configureDrumVoice(AudioSynthWaveformSineModulated &sineFM, AudioSynthWaveformSine &sineMod, 
+                       AudioSynthNoiseWhite &noise, AudioFilterStateVariable &filter,
+                       AudioMixer4 &sineModMxr, AudioMixer4 &mainMxr, AudioEffectEnvelope &env,
+                       AudioEffectEnvelope &modEnv, AudioEffectEnvelope &noiseEnv,
+                       float baseFreq, float pitchBoost, float decayTime) {
+  sineFM.amplitude(0.7);
+  sineFM.frequency(baseFreq);
+  updateModulatorFrequency(sineMod, baseFreq);
+  sineMod.amplitude(0.7);
+  noise.amplitude(0.7);
+  filter.frequency(2000);
+  filter.resonance(0);
+  sineModMxr.gain(0, 0.7);
+  sineModMxr.gain(1, 1.0);
+  sineModMxr.gain(2, 0.0);
+  sineModMxr.gain(3, 0.0);
+  mainMxr.gain(0, 1.0);
+  mainMxr.gain(1, 0.0);
+  mainMxr.gain(2, 0.0);
+  mainMxr.gain(3, 0.0);
+  env.attack(1);
+  env.decay(decayTime); // Use parameter for decay time
+  env.sustain(0);
+  env.release(50);
+  modEnv.attack(2);
+  modEnv.decay(50);
+  modEnv.sustain(0);
+  modEnv.release(20);
+  noiseEnv.attack(2);
+  noiseEnv.decay(10);
+  noiseEnv.sustain(0);
+  noiseEnv.release(0);
+}
 
-  // ================= CONFIGURE LOW TOM =================
-  configureDrumVoice(loTomSineFM, loTomSineMod, loTomNoise, loTomLowPassFilter, 
-                    loTomSineModMxr, loTomMxr, loTomEnv, loTomModEnv, loTomNoiseEnvelope,
-                    loTomBaseFreq, loTomInitialPitchBoost);
-
-  // ================= CONFIGURE HIGH TOM =================
-  configureDrumVoice(hiTomSineFM, hiTomSineMod, hiTomNoise, hiTomLowPassFilter, 
-                    hiTomSineModMxr, hiTomMxr, hiTomEnv, hiTomModEnv, hiTomNoiseEnvelope,
-                    hiTomBaseFreq, hiTomInitialPitchBoost);
-
-  // ================= CONFIGURE SNARE =================
+void configureSnareVoice() {
   snareBodySine5th.begin(WAVEFORM_SINE);
   snareBodySquare5th.begin(WAVEFORM_SQUARE);
   updateSnareOscillatorFrequencies(snareBaseFreq);
@@ -291,8 +278,9 @@ void setup() {
   snareSnapEnv.sustain(0);
   snareSnapEnv.release(40);
   snareSnapEnv.delay(5);
+}
 
-  // ================= CONFIGURE HI-HAT =================
+void configureHiHatVoice() {
   hatsBodySquareFMCarrier.begin(WAVEFORM_SQUARE);
   hatsBodySquare5th.begin(WAVEFORM_SQUARE);
   
@@ -333,6 +321,66 @@ void setup() {
   hatsEnv.decay(closedDecayTime);
   hatsEnv.sustain(0);
   hatsEnv.release(5);
+}
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Initializing FM Drum Machine...");
+  
+  // Initialize potentiometer pins
+  pinMode(kickDecayPotPin, INPUT);
+  pinMode(kickTunePotPin, INPUT);
+  pinMode(kickPunchPotPin, INPUT);
+  pinMode(kickNoiseLevelPotPin, INPUT);
+  pinMode(snareDecayPotPin, INPUT);
+  pinMode(snareTumePotPin, INPUT);
+  pinMode(snarePunchPotPin, INPUT);
+  pinMode(snareSnapPotPin, INPUT);
+  pinMode(snareTimbrePotPin, INPUT);
+  pinMode(hatsDecayPotPin, INPUT);
+  pinMode(hatsTonePotPin, INPUT);
+  pinMode(hatsTimbrePotPin, INPUT);
+  pinMode(hatsResonancePotPin, INPUT);
+  
+  // Initialize MIDI
+  MIDI.setHandleNoteOn(handleNoteOn);
+  MIDI.begin(MIDI_CHANNEL_OMNI);
+  
+  AudioMemory(400); // Increased memory for additional voices
+  audioControl.enable();
+  audioControl.volume(0.8);
+  
+  // Configure output mixers
+  leftOutMxr.gain(0, 0.8);  // Kick level on left channel
+  leftOutMxr.gain(1, 0.8);  // Hi-hat level on left channel
+  leftOutMxr.gain(2, 0.0);  // Unused
+  leftOutMxr.gain(3, 0.0);  // Unused
+  
+  rightOutMxr.gain(0, 0.8); // Snare level on right channel
+  rightOutMxr.gain(1, 0.8); // Low Tom level on right channel
+  rightOutMxr.gain(2, 0.8); // High Tom level on right channel
+  rightOutMxr.gain(3, 0.0); // Unused
+  
+  // ================= CONFIGURE KICK =================
+  configureDrumVoice(kickSineFM, kickSineMod, kickNoise, kickLowPassFilter, 
+                    kickSineModMxr, kickMxr, kickEnv, kickModEnv, kickNoiseEnvelope,
+                    kickBaseFreq, kickInitialPitchBoost, 150.0);
+
+  // ================= CONFIGURE LOW TOM =================
+  configureDrumVoice(loTomSineFM, loTomSineMod, loTomNoise, loTomLowPassFilter, 
+                    loTomSineModMxr, loTomMxr, loTomEnv, loTomModEnv, loTomNoiseEnvelope,
+                    loTomBaseFreq, loTomInitialPitchBoost, loTomDecayTime);
+
+  // ================= CONFIGURE HIGH TOM =================
+  configureDrumVoice(hiTomSineFM, hiTomSineMod, hiTomNoise, hiTomLowPassFilter, 
+                    hiTomSineModMxr, hiTomMxr, hiTomEnv, hiTomModEnv, hiTomNoiseEnvelope,
+                    hiTomBaseFreq, hiTomInitialPitchBoost, hiTomDecayTime);
+
+  // ================= CONFIGURE SNARE =================
+  configureSnareVoice();
+
+  // ================= CONFIGURE HI-HAT =================
+  configureHiHatVoice();
 
   Serial.println("FM Drum Machine with Kick, Snare, Hi-Hat and Toms Ready");
   Serial.println("Listening for MIDI notes:");
@@ -341,40 +389,7 @@ void setup() {
   Serial.println("Output routing:");
   Serial.println("Left channel: Kick + Hi-hat");
   Serial.println("Right channel: Snare + Low Tom + High Tom");
-}
-
-void configureDrumVoice(AudioSynthWaveformSineModulated &sineFM, AudioSynthWaveformSine &sineMod, 
-                       AudioSynthNoiseWhite &noise, AudioFilterStateVariable &filter,
-                       AudioMixer4 &sineModMxr, AudioMixer4 &mainMxr, AudioEffectEnvelope &env,
-                       AudioEffectEnvelope &modEnv, AudioEffectEnvelope &noiseEnv,
-                       float baseFreq, float pitchBoost) {
-  sineFM.amplitude(0.7);
-  sineFM.frequency(baseFreq);
-  updateModulatorFrequency(sineMod, baseFreq);
-  sineMod.amplitude(0.7);
-  noise.amplitude(0.7);
-  filter.frequency(2000);
-  filter.resonance(0);
-  sineModMxr.gain(0, 0.7);
-  sineModMxr.gain(1, 1.0);
-  sineModMxr.gain(2, 0.0);
-  sineModMxr.gain(3, 0.0);
-  mainMxr.gain(0, 1.0);
-  mainMxr.gain(1, 0.0);
-  mainMxr.gain(2, 0.0);
-  mainMxr.gain(3, 0.0);
-  env.attack(1);
-  env.decay(150);
-  env.sustain(0);
-  env.release(50);
-  modEnv.attack(2);
-  modEnv.decay(50);
-  modEnv.sustain(0);
-  modEnv.release(20);
-  noiseEnv.attack(2);
-  noiseEnv.decay(10);
-  noiseEnv.sustain(0);
-  noiseEnv.release(0);
+  Serial.println("Tom decay controlled by A0");
 }
 
 void loop() {
@@ -470,8 +485,10 @@ void readPotsAndUpdate() {
   int kickPunchVal = analogRead(kickPunchPotPin);
   int kickNoiseLevelVal = analogRead(kickNoiseLevelPotPin);
   
+  int tomDecayVal = analogRead(tomDecayPotPin); // Tom decay control
+  
   int snareDecayVal = analogRead(snareDecayPotPin);
-  int snareTuneVal = analogRead(snareTunePotPin);
+  int snareTuneVal = analogRead(snareTumePotPin);
   int snarePunchVal = analogRead(snarePunchPotPin);
   int snareSnapVal = analogRead(snareSnapPotPin);
   int snareTimbreVal = analogRead(snareTimbrePotPin);
@@ -485,13 +502,13 @@ void readPotsAndUpdate() {
   kickBaseFreq = map(kickTuneVal, 0, 1023, 30, 120);
   float kickDecayTime = map(kickDecayVal, 0, 1023, 50, 700);
   kickInitialPitchBoost = map(kickPunchVal, 0, 1023, 10, 60) / 10.0;
-  kickNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 100) / 100.0; // Now controlled by A3
+  kickNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 100) / 100.0;
   
   kickEnv.decay(kickDecayTime);
   kickMxr.gain(1, kickNoiseLevel);
   updateModulatorFrequency(kickSineMod, kickBaseFreq);
   
-  // Update tom parameters (using kick pots for now)
+  // Update tom parameters
   loTomBaseFreq = map(kickTuneVal, 0, 1023, 60, 100);   // Low tom range
   hiTomBaseFreq = map(kickTuneVal, 0, 1023, 100, 180);  // High tom range
   
@@ -500,6 +517,13 @@ void readPotsAndUpdate() {
   
   loTomNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 80) / 100.0;
   hiTomNoiseLevel = map(kickNoiseLevelVal, 0, 1023, 0, 60) / 100.0;
+  
+  // TOM DECAY CONTROL - Added this section
+  loTomDecayTime = map(tomDecayVal, 0, 1023, 100, 500);  // Tom decay range
+  hiTomDecayTime = map(tomDecayVal, 0, 1023, 80, 400);   // High tom slightly shorter decay
+  
+  loTomEnv.decay(loTomDecayTime);
+  hiTomEnv.decay(hiTomDecayTime);
   
   loTomMxr.gain(1, loTomNoiseLevel);
   hiTomMxr.gain(1, hiTomNoiseLevel);

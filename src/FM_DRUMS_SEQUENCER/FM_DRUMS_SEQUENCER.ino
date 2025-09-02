@@ -25,6 +25,23 @@ const byte COLS = 5;
 byte rowPins[ROWS] = {A0, A1, A2, A3, A4};  // R1-R5
 byte colPins[COLS] = {2, 3, 4, 5, 6};       // C1-C5
 
+// Potentiometer Configuration
+#define TEMPO_POT_PIN A6
+#define SWING_POT_PIN A7
+#define MIN_BPM 80
+#define MAX_BPM 160
+#define POT_READ_INTERVAL 100 // Read pot every 100ms
+#define SWING_MIN 0
+#define SWING_MAX 50 // Max 75% swing (typical range)
+
+// Swing Configuration
+int swingAmount = 0; // 0-75% swing
+bool swingOnEvenSteps = true; // Swing applies to even steps (2,4,6,...)
+
+// Recording Configuration
+#define RECORDING_WINDOW 50  // ms window for early/late recording
+#define STEP_PERCENTAGE 15   // % of step interval for recording window
+
 // Button State Tracking
 byte buttonStates[ROWS][COLS] = {0};
 byte lastButtonStates[ROWS][COLS] = {0};
@@ -38,7 +55,8 @@ bool isPlaying = false;
 bool recordEnabled = false;
 unsigned long lastStepTime = 0;
 unsigned int currentBPM = 120;
-unsigned int stepInterval = 60000 / (currentBPM * 4); // Will be updated by MIDI clock
+unsigned int baseStepInterval = 60000 / (currentBPM * 4); // Base step interval without swing
+unsigned int swingStepInterval = baseStepInterval; // Step interval with swing applied
 unsigned long sequenceStartTime = 0;
 unsigned long voiceFlashTime[6] = {0};
 const int FLASH_DURATION = 100;
@@ -50,6 +68,9 @@ unsigned long clockIntervals[TEMPO_AVERAGE_WINDOW];
 byte clockIndex = 0;
 byte clockCount = 0;
 bool isExternalClock = false;
+
+// Potentiometer Tracking
+unsigned long lastPotReadTime = 0;
 
 // LED Mapping
 #define STEP_LEDS_ROW1 0   // Steps 1-8
@@ -108,8 +129,12 @@ void setup() {
 
   // Initialize clock intervals array
   for (byte i = 0; i < TEMPO_AVERAGE_WINDOW; i++) {
-    clockIntervals[i] = stepInterval * 4 / PPQN; // Initialize with internal clock interval
+    clockIntervals[i] = baseStepInterval * 4 / PPQN; // Initialize with internal clock interval
   }
+
+  // Initialize potentiometer pins
+  pinMode(TEMPO_POT_PIN, INPUT);
+  pinMode(SWING_POT_PIN, INPUT);
 
   delay(10);
 }
@@ -122,7 +147,8 @@ void loop() {
   if (isExternalClock && micros() - lastClockReceivedTime > CLOCK_TIMEOUT) {
     isExternalClock = false;
     clockCount = 0;
-    stepInterval = 60000 / (currentBPM * 4); // Reset to internal interval
+    baseStepInterval = 60000 / (currentBPM * 4); // Reset to internal interval
+    updateSwingStepInterval(); // Update swing interval
   }
   
   unsigned long currentTime = millis();
@@ -130,17 +156,87 @@ void loop() {
   // Read Button Matrix
   readButtons();
   
+  // Read potentiometers if not using external clock
+  if (!isExternalClock && currentTime - lastPotReadTime > POT_READ_INTERVAL) {
+    readPotentiometers();
+    lastPotReadTime = currentTime;
+  }
+  
   // Sequencer Logic
   if (isPlaying) {
     // If using internal clock and no external clock is detected
-    if (!isExternalClock && currentTime - lastStepTime >= stepInterval) {
+    if (!isExternalClock && currentTime - lastStepTime >= swingStepInterval) {
       advanceStep();
       lastStepTime = currentTime;
+      updateSwingStepInterval(); // Update swing for next step
     }
   }
   
   // Update Display
   updateDisplay();
+}
+
+void readPotentiometers() {
+  // Read the tempo potentiometer value
+  int tempoPotValue = analogRead(TEMPO_POT_PIN);
+  
+  // Map to BPM range (80-160)
+  unsigned int newBPM = map(tempoPotValue, 0, 1023, MIN_BPM, MAX_BPM);
+  
+  // Only update if BPM has changed
+  if (newBPM != currentBPM) {
+    currentBPM = newBPM;
+    baseStepInterval = 60000 / (currentBPM * 4); // Update base step interval for 16th notes
+    updateSwingStepInterval(); // Update swing interval
+  }
+  
+  // Read the swing potentiometer value
+  int swingPotValue = analogRead(SWING_POT_PIN);
+  
+  // Map to swing range (0-75%)
+  int newSwingAmount = map(swingPotValue, 0, 1023, SWING_MIN, SWING_MAX);
+  
+  // Only update if swing amount has changed
+  if (newSwingAmount != swingAmount) {
+    swingAmount = newSwingAmount;
+    updateSwingStepInterval(); // Update swing interval
+  }
+}
+
+void updateSwingStepInterval() {
+  // Calculate swing based on current step
+  bool isSwingStep = swingOnEvenSteps ? (currentStep % 2 == 1) : (currentStep % 2 == 0);
+  
+  if (isSwingStep && swingAmount > 0) {
+    // Apply swing to this step (lengthen the interval)
+    swingStepInterval = baseStepInterval * (100 + swingAmount) / 100;
+  } else {
+    // No swing or shorten the interval to compensate
+    swingStepInterval = baseStepInterval * (100 - swingAmount) / 100;
+  }
+}
+
+byte getRecordStep() {
+  if (!isPlaying) return currentStep;
+  
+  unsigned long elapsedTime = millis() - sequenceStartTime;
+  unsigned long stepTime = elapsedTime % (baseStepInterval * NUM_STEPS); // Use base interval for recording
+  byte calculatedStep = (stepTime / baseStepInterval) % NUM_STEPS;
+  
+  // Check if we're in the recording window of the next step
+  unsigned long stepPosition = stepTime % baseStepInterval;
+  unsigned long recordWindow = baseStepInterval * STEP_PERCENTAGE / 100;
+  
+  // If we're close to the next step, record on the next step
+  if (stepPosition > (baseStepInterval - recordWindow)) {
+    calculatedStep = (calculatedStep + 1) % NUM_STEPS;
+  }
+  // If we're close to the previous step, record on the previous step
+  else if (stepPosition < recordWindow && calculatedStep > 0) {
+    calculatedStep = calculatedStep - 1;
+  }
+  
+  return calculatedStep;
 }
 
 // MIDI Input Handlers
@@ -152,9 +248,7 @@ void handleNoteOn(byte channel, byte note, byte velocity) {
       
       // Record if enabled
       if (recordEnabled && isPlaying) {
-        unsigned long elapsedTime = millis() - sequenceStartTime;
-        byte nearestStep = ((elapsedTime % (stepInterval * NUM_STEPS)) / stepInterval) % NUM_STEPS;
-        patterns[i][nearestStep] = 1;
+        patterns[i][getRecordStep()] = 1;
       }
       return;
     }
@@ -178,7 +272,8 @@ void handleClock() {
     avgInterval /= TEMPO_AVERAGE_WINDOW;
     
     currentBPM = 60000000 / (avgInterval * PPQN);
-    stepInterval = (avgInterval * PPQN) / 4; // 16th notes (PPQN/4)
+    baseStepInterval = (avgInterval * PPQN) / 4; // 16th notes (PPQN/4)
+    updateSwingStepInterval(); // Update swing interval
     
     if (clockCount++ > TEMPO_AVERAGE_WINDOW) {
       isExternalClock = true;
@@ -189,6 +284,7 @@ void handleClock() {
   // Advance step on every 6th clock pulse (16th notes)
   if (isPlaying && isExternalClock && (clockCount % (PPQN/4) == 0)) {
     advanceStep();
+    updateSwingStepInterval(); // Update swing for next step
   }
 }
 
@@ -199,11 +295,13 @@ void handleStart() {
   clockCount = 0;
   isExternalClock = true;
   lastStepTime = millis();
+  updateSwingStepInterval(); // Initialize swing interval
 }
 
 void handleContinue() {
   isPlaying = true;
   isExternalClock = true;
+  updateSwingStepInterval(); // Initialize swing interval
 }
 
 void handleStop() {
@@ -267,6 +365,7 @@ void handleButtonPress(byte row, byte col) {
       currentStep = 0;
       lastStepTime = millis();
       sequenceStartTime = millis();
+      updateSwingStepInterval(); // Initialize swing interval
       // Send MIDI Start if we're the master
       if (!isExternalClock) {
         MIDI.sendRealTime(midi::Start);
@@ -293,9 +392,7 @@ void handleButtonPress(byte row, byte col) {
       } else {
         triggerVoice(i);
         if (recordEnabled && isPlaying) {
-          unsigned long elapsedTime = millis() - sequenceStartTime;
-          byte nearestStep = ((elapsedTime % (stepInterval * NUM_STEPS)) / stepInterval) % NUM_STEPS;
-          patterns[i][nearestStep] = 1;
+          patterns[i][getRecordStep()] = 1;
         }
       }
       return;
